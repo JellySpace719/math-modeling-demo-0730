@@ -1,0 +1,5 @@
+2025-07-30 15:16:22,779 - INFO - 开始爬取，总计 5 个城市
+2025-07-30 15:16:22,779 - INFO - 正在爬取: 北京 (1/5)
+2025-07-30 15:17:01,022 - INFO - 成功爬取: 北京 (1/5)
+2025-07-30 15:17:03,023 - INFO - 正在爬取: 上海 (2/5)
+2025-07-30 15:17:44,491 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)': /session/ab8a02144e116279dae1baadf71e5b1a

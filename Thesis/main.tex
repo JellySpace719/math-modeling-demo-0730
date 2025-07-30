@@ -1,0 +1,253 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+% \usepackage{stmaryrd}
+% \usepackage{imakeidx}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{B}
+\newcommand{\Team}{2503720}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=bibtex]{biblatex}
+
+% \usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+% \usepackage{newtxmath} % must come after amsXXX
+% \usepackage{tocloft}
+
+% \usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+%-----数学宏包-----
+% \usepackage{mathrsfs,bm}
+%-----draft下 label提示-----
+% \usepackage[notcite,notref]{showkeys}
+% %-----设置超链接-----
+\usepackage{url,hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black} % 去掉目录红框
+%-----制作目录-----
+% \usepackage{imakeidx}
+% 设置颜色
+% \usepackage{color,xcolor}
+% 插入图片
+% \usepackage{graphicx}
+% \usepackage{epsfig}
+%-----设置表格-----
+% \usepackage{tabularx,array}
+% \usepackage{longtable}
+% \usepackage{booktabs}
+% \usepackage{multirow}
+% \usepackage{multicol}
+%-----调整单元格格式-----
+% \usepackage{makecell}
+%-----操作字符串-----
+\usepackage{xstring}
+%-----多语种处理-----
+% \usepackage[english]{babel}
+%-----设置代码环境-----
+% \usepackage{listings}
+%-----设置章节标题和目录-----
+\usepackage{titling}
+\usepackage{titletoc}
+\usepackage{titlesec}
+%-----数学公式扩展-----
+\usepackage{mathtools}
+%-----中文支持-----
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}           % Win默认宋体
+\setCJKsansfont{SimHei}           % 黑体
+\setCJKmonofont{FangSong}         % 仿宋
+\setmainfont{Times New Roman}     % 英文
+\xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
+%-----浮动体设置-----
+\usepackage{float}
+%-----书签设置-----
+\usepackage{bookmark}
+%-----数学宏包-----
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{mathrsfs,bm}
+%-----draft下 label提示-----
+% \usepackage[notcite,notref]{showkeys}
+% --- 算法宏包及设置 ---
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+% ---- 定义列表项的样式 -----
+\usepackage{enumitem}
+\setlist{nolistsep}
+% --- 设置英文字体 -----
+\usepackage{newtxtext}  % for text fonts
+% --- 设置数学字体 -----
+\usepackage{newtxmath}
+% --- 直接插入 pdf 文件 ----
+\usepackage{pdfpages}
+\usepackage{lastpage} % 用于获取总页数
+\usepackage[titletoc,title]{appendix} % 用于添加附录
+\usepackage{setspace} % 用于设置行间距
+% 插入图片
+\usepackage{graphicx}
+\usepackage{epsfig}
+%-----设置表格-----
+\usepackage{tabularx,array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+%-----调整单元格格式-----
+\usepackage{makecell}
+%-----操作字符串-----
+\usepackage{xstring}
+%-----多语种处理-----
+%\usepackage[english]{babel}
+%-----设置代码环境-----
+\usepackage{listings}
+%-----设置章节标题和目录-----
+\usepackage{titletoc}
+\usepackage{titlesec}
+%-----数学公式扩展-----
+\usepackage{mathtools}
+%-----浮动体设置-----
+\usepackage{float}
+%-----书签设置-----
+\usepackage{bookmark}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{setspace}
+\usepackage{minted} % 用于插入代码
+\renewcommand*{\baselinestretch}{1.5}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\definecolor{bg}{rgb}{0.95, 0.95, 0.95}
+% 设置 minted 环境的全局选项
+\setminted{
+    linenos, % 显示行号
+    frame=lines, % 添加边框
+    framesep=2mm, % 设置边框与代码之间的间距
+    breaklines, % 自动换行
+    bgcolor=bg, % 设置背景颜色
+    baselinestretch = 1.0,
+    numbersep = 5pt,
+    numberblanklines = false,
+	tabsize = 4
+}
+% ----- 设置浮动体间距 ------
+\setlength{\textfloatsep}{0pt}
+\setlength{\floatsep}{10pt plus 3pt minus 2pt}
+\setlength{\intextsep}{10pt}
+\setlength{\abovecaptionskip}{2pt plus1pt minus1pt}
+\setlength{\belowcaptionskip}{3pt plus1pt minus2pt}
+
+% ----- 设置公式间距为零 ------
+\AtBeginDocument{
+	\setlength{\abovedisplayskip}{4pt plus1pt minus1pt}
+	\setlength{\belowdisplayskip}{4pt plus1pt minus1pt}
+	\setlength{\abovedisplayshortskip}{2pt}
+	\setlength{\belowdisplayshortskip}{2pt}
+	\setlength{\arraycolsep}{2pt}   % array中列之间空白长度
+}
+% ---- 定义列表项的样式 -----
+\usepackage{enumitem}
+\setlist{nolistsep}
+% \setlength{\itemsep}{3pt plus1pt minus2pt}
+
+% --- 设置英文字体 -----
+% \usepackage{newtxtext}  % for text fonts
+\usepackage{fontspec}
+
+
+% --- 自定义命令 -----
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\ii}{\bm{\mathrm{i}}\,}  % 虚部
+\newcommand{\md}{\mathrm{d}\,}
+\newcommand{\bA}{\boldsymbol{A}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+% 定义 summary 环境
+\newenvironment{summary}
+  {\begin{center}\bfseries Summary\end{center}\normalfont}
+
+% 重新定义目录标题并居中显示
+\renewcommand{\contentsname}{\centering Contents}
+% 设置页眉
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Team \# 2503720}
+\fancyhead[R]{Page \thepage\ of \pageref{LastPage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+
+\onehalfspacing
+
+\thispagestyle{empty}
+
+\input{sections/1.Header.tex}
+
+\input{sections/2.Title.tex}
+
+\input{sections/3.Abstract.tex}
+
+\clearpage
+
+
+
+%%%%%%%%%%%%%目录%%%%%%%%%%%%%%
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{sections/4.Introduction.tex}
+
+\input{sections/5.Assumtions and Notations.tex}
+
+\input{sections/6.Preliminary Analyses.tex}
+
+
+\clearpage
+
+
+\input{sections/7.Task 1.tex}
+
+\clearpage
+
+
+\input{sections/8.Task 2.tex}
+
+\clearpage
+
+
+
+\input{sections/9.Task 3.tex}
+
+\input{sections/Appendix.tex}
+
+\clearpage
+
+\input{sections/Reference.tex}
+
+\clearpage
+
+\input{sections/GPT.tex}
+
+\end{document}
