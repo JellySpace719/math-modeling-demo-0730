@@ -1,0 +1,335 @@
+﻿Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4
+2-2水资源总量和用水总量,,,,
+,,,,
+Total Water Resources and Consumption,,,,
+,,,,
+单位：亿立方米,,,,
+,,,,
+(108cu.m),,,,
+,,,,
+城 市,City,水资源总量 Total Water Resources,用水总量 Total Water Consumption,
+,,全市 Total City,全市 Total City,市辖区 Districts under City
+北京市,Beijing,42,41,41
+天津市,Tianjin,18,33,33
+河北省,Hebei,,,
+  石家庄市,  Shijiazhuang,38,32,9
+  唐山市,  Tangshan,22,24,13
+  秦皇岛市,  Qinhuangdao,9,7,3
+  邯郸市,  Handan,26,19,6
+  邢台市,  Xingtai,31,19,7
+  保定市,  Baoding,63,33,17
+  张家口市,  Zhangjiakou,17,7,6
+  承德市,  Chengde,18,8,1
+  沧州市,  Cangzhou,9,15,3
+  廊坊市,  Langfang,8,9,2
+  衡水市,  Hengshui,8,14,3
+山西省,Shanxi,,,
+  太原市,  Taiyuan,,7,5
+  大同市,  Datong,,,
+  阳泉市,  Yangquan,2,2,1
+  长治市,  Changzhi,,5,2
+  晋城市,  Jincheng,,4,1
+  朔州市,  Shuozhou,7,5,1
+  晋中市,  Jinzhong,,6,2
+  运城市,  Yuncheng,13,15,2
+  忻州市,  Xinzhou,21,6,1
+  临汾市,  Linfen,,,
+  吕梁市,  Lvliang,,,
+内蒙古自治区,Inner Mongolia,,,
+  呼和浩特市,  Hohhot,10,10,3
+  包头市,  Baotou,6,10,5
+  乌海市,  Wuhai,2,0,0
+  赤峰市,  Chifeng,29,25,5
+  通辽市,  Tongliao,37,38,8
+  鄂尔多斯市,  Erdos,29,18,1
+  呼伦贝尔市,  Hulunbuir,316,18,1
+  巴彦淖尔市,  Bayannur,51,47,9
+  乌兰察布市,  Ulanqab,13,7,1
+辽宁省,Liaoning,,,
+  沈阳市,  Shenyang,26,27,20
+  大连市,  Dalian,29,16,10
+  鞍山市,  Anshan,44,9,2
+  抚顺市,  Fushun,25,5,3
+  本溪市,  Benxi,33,3,1
+  丹东市,  Dandong,82,8,1
+  锦州市,  Jinzhou,11,8,2
+  营口市,  Yingkou,13,8,3
+  阜新市,  Fuxin,11,3,1
+  辽阳市,  Liaoyang,10,9,2
+  盘锦市,  Panjin,2,14,9
+  铁岭市,  Tieling,22,7,1
+  朝阳市,  Chaoyang,9,5,1
+  葫芦岛市,  Huludao,8,4,2
+吉林省,Jilin,,,
+  长春市,  Changchun,45,25,7
+  吉林市,  Jilin,83,19,8
+  四平市,  Siping,19,6,1
+  辽源市,  Liaoyuan,8,2,0
+  通化市,  Tonghua,44,6,1
+  白山市,  Baishan,80,2,1
+  松原市,  Songyuan,19,16,2
+  白城市,  Baicheng,36,19,6
+黑龙江省,Heilongjiang,,,
+  哈尔滨市,  Harbin,191,59,7
+  齐齐哈尔市,  Qiqihar,84,40,7
+  鸡西市,  Jixi,,34,1
+  鹤岗市,  Hegang,,,
+  双鸭山市,  Shuangyashan,,,
+  大庆市,  Daqing,30,19,6
+  伊春市,  Yichun,99,4,0
+  佳木斯市,  Jiamusi,55,59,5
+  七台河市,  Qitaihe,11,2,1
+  牡丹江市,  Mudanjiang,,8,2
+  黑河市,  Heihe,113,2,0
+  绥化市,  Suihua,44,24,5
+上海市,Shanghai,,,
+江苏省,Jiangsu,,,
+  南京市,  Nanjing,25,57,57
+  无锡市,  Wuxi,27,27,8
+  徐州市,  Xuzhou,31,37,11
+  常州市,  Changzhou,24,25,
+  苏州市,  Suzhou,53,100,21
+  南通市,  Nantong,46,48,28
+  连云港市,  Lianyungang,24,26,11
+  淮安市,  Huai'an,37,4,3
+  盐城市,  Yancheng,58,45,13
+  扬州市,  Yangzhou,30,36,19
+  镇江市,  Zhenjiang,21,43,25
+  泰州市,  Taizhou,28,49,25
+  宿迁市,  Suqian,42,25,9
+浙江省,Zhejiang,,,
+  杭州市,  Hangzhou,115,29,24
+  宁波市,  Ningbo,50,21,13
+  温州市,  Wenzhou,103,17,5
+  嘉兴市,  Jiaxing,21,19,5
+  湖州市,  Huzhou,39,13,5
+  绍兴市,  Shaoxing,40,18,10
+  金华市,  Jinhua,63,16,
+  衢州市,  Quzhou,82,11,4
+  舟山市,  Zhoushan,5,3,1
+  台州市,  Taizhou,57,14,4
+  丽水市,  Lishui,141,7,2
+安徽省,Anhui,,,
+  合肥市,  Hefei,38,31,8
+  芜湖市,  Wuhu,33,30,23
+  蚌埠市,  Bengbu,20,13,3
+  淮南市,  Huainan,13,20,10
+  马鞍山市,  Ma'anshan,19,30,17
+  淮北市,  Huaibei,9,4,2
+  铜陵市,  Tongling,20,11,9
+  安庆市,  Anqing,105,22,7
+  黄山市,  Huangshan,76,4,2
+  滁州市,  Chuzhou,33,23,3
+  阜阳市,  Fuyang,37,19,5
+  宿州市,  Suzhou,34,10,3
+  六安市,  Lu'an,86,23,9
+  亳州市,  Bozhou,30,11,3
+  池州市,  Chizhou,58,10,6
+  宣城市,  Xuancheng,82,14,5
+福建省,Fujian,,,
+  福州市,  Fuzhou,93,23,7
+  厦门市,  Xiamen,15,7,7
+  莆田市,  Putian,38,10,7
+  三明市,  Sanming,170,19,3
+  泉州市,  Quanzhou,89,25,6
+  漳州市,  Zhangzhou,94,18,7
+  南平市,  Nanping,228,21,5
+  龙岩市,  Longyan,141,17,5
+  宁德市,  Ningde,110,15,3
+江西省,Jiangxi,,,
+  南昌市,  Nanchang,78,29,14
+  景德镇市,  Jingdezhen,42,7,1
+  萍乡市,  Pingxiang,47,2,1
+  九江市,  Jiujiang,108,23,7
+  新余市,  Xinyu,30,7,5
+  鹰潭市,  Yingtan,37,7,3
+  赣州市,  Ganzhou,277,32,8
+  吉安市,  Ji'an,197,31,5
+  宜春市,  Yichun,,,
+  抚州市,  Fuzhou,195,22,9
+  上饶市,  Shangrao,228,32,7
+山东省,Shandong,,,
+  济南市,  Jinan,19,20,18
+  青岛市,  Qingdao,14,12,8
+  淄博市,  Zibo,12,11,6
+  枣庄市,  Zaozhuang,10,6,3
+  东营市,  Dongying,3,12,7
+  烟台市,  Yantai,17,11,4
+  潍坊市,  Weifang,16,16,4
+  济宁市,  Jining,46,21,6
+  泰安市,  Tai'an,16,10,3
+  威海市,  Weihai,15,5,2
+  日照市,  Rizhao,15,6,3
+  临沂市,  Linyi,45,17,5
+  德州市,  Dezhou,13,19,5
+  聊城市,  Liaocheng,13,18,6
+  滨州市,  Binzhou,8,16,5
+  菏泽市,  Heze,22,22,5
+河南省,Henan,,,
+  郑州市,  Zhengzhou,13,21,13
+  开封市,  Kaifeng,12,14,5
+  洛阳市,  Luoyang,33,12,3
+  平顶山市,  Pingdingshan,19,10,3
+  安阳市,  Anyang,22,14,4
+  鹤壁市,  Hebi,7,3,1
+  新乡市,  Xinxiang,21,17,2
+  焦作市,  Jiaozuo,10,10,2
+  濮阳市,  Puyang,6,9,2
+  许昌市,  Xuchang,11,8,3
+  漯河市,  Luohe,7,5,3
+  三门峡市,  Sanmenxia,28,4,1
+  南阳市,  Nanyang,69,23,4
+  商丘市,  Shangqiu,28,11,2
+  信阳市,  Xinyang,89,18,3
+  周口市,  Zhoukou,33,16,1
+  驻马店市,  Zhumadian,62,10,2
+湖北省,Hubei,,,
+  武汉市,  Wuhan,47,45,45
+  黄石市,  Huangshi,29,9,3
+  十堰市,  Shiyan,125,9,3
+  宜昌市,  Yichang,129,19,5
+  襄阳市,  Xiangyang,92,33,14
+  鄂州市,  Ezhou,11,8,8
+  荆门市,  Jingmen,45,25,4
+  孝感市,  Xiaogan,45,33,5
+  荆州市,  Jingzhou,70,40,17
+  黄冈市,  Huanggang,105,32,2
+  咸宁市,  Xianning,57,14,3
+  随州市,  Suizhou,44,11,2
+湖南省,Hunan,,,
+  长沙市,  Changsha,66,35,19
+  株洲市,  Zhuzhou,86,19,6
+  湘潭市,  Xiangtan,27,19,10
+  衡阳市,  Hengyang,70,30,2
+  邵阳市,  Shaoyang,88,27,2
+  岳阳市,  Yueyang,78,34,14
+  常德市,  Changde,91,34,7
+  张家界市,  Zhangjiajie,58,5,2
+  益阳市,  Yiyang,62,25,13
+  郴州市,  Chenzhou,210,20,4
+  永州市,  Yongzhou,159,23,5
+  怀化市,  Huaihua,178,16,2
+  娄底市,  Loudi,98,11,2
+广东省,Guangdong,,,
+  广州市,  Guangzhou,,61,61
+  韶关市,  Shaoguan,200,18,5
+  深圳市,  Shenzhen,21,22,22
+  珠海市,  Zhuhai,18,6,6
+  汕头市,  Shantou,17,10,10
+  佛山市,  Foshan,34,29,29
+  江门市,  Jiangmen,141,26,9
+  湛江市,  Zhanjiang,125,25,5
+  茂名市,  Maoming,152,25,
+  肇庆市,  Zhaoqing,115,18,6
+  惠州市,  Huizhou,93,21,9
+  梅州市,  Meizhou,145,19,4
+  汕尾市,  Shanwei,50,9,1
+  河源市,  Heyuan,134,15,1
+  阳江市,  Yangjiang,148,13,5
+  清远市,  Qingyuan,249,17,6
+  东莞市,  Dongguan,23,20,
+  中山市,  Zhongshan,19,15,
+  潮州市,  Chaozhou,28,8,5
+  揭阳市,  Jieyang,61,12,4
+  云浮市,  Yunfu,76,11,2
+广西壮族自治区,Guangxi,,,
+  南宁市,  Nanning,103,32,19
+  柳州市,  Liuzhou,108,16,6
+  桂林市,  Guilin,219,33,8
+  梧州市,  Wuzhou,,11,
+  北海市,  Beihai,,,
+  防城港市,  Fangchenggang,,5,4
+  钦州市,  Qinzhou,143,14,6
+  贵港市,  Guigang,93,23,10
+  玉林市,  Yulin,153,21,4
+  百色市,  Baise,148,18,4
+  贺州市,  Hezhou,88,14,6
+  河池市,  Hechi,113,14,5
+  来宾市,  Laibin,60,17,9
+  崇左市,  Chongzuo,89,11,2
+海南省,Hainan,,,
+  海口市,  Haikou,26,7,7
+  三亚市,  Sanya,14,3,3
+  三沙市,  Sansha,,,
+  儋州市,  Danzhou,24,5,
+重庆市,Chongqing,698,71,60
+四川省,Sichuan,,,
+  成都市,  Chengdu,73,56,33
+  自贡市,  Zigong,10,6,3
+  攀枝花市,  Panzhihua,23,7,4
+  泸州市,  Luzhou,56,12,5
+  德阳市,  Deyang,26,18,5
+  绵阳市,  Mianyang,78,18,6
+  广元市,  Guangyuan,43,6,2
+  遂宁市,  Suining,15,9,3
+  内江市,  Neijiang,8,13,4
+  乐山市,  Leshan,97,13,4
+  南充市,  Nanchong,37,14,4
+  眉山市,  Meishan,42,13,2
+  宜宾市,  Yibin,62,12,6
+  广安市,  Guang'an,30,8,1
+  达州市,  Dazhou,86,13,4
+  雅安市,  Ya'an,134,6,2
+  巴中市,  Bazhong,68,5,2
+  资阳市,  Ziyang,17,6,2
+贵州省,Guizhou,,,
+  贵阳市,  Guiyang,31,10,6
+  六盘水市,  Liupanshui,,7,3
+  遵义市,  Zunyi,,,
+  安顺市,  Anshun,37,7,3
+  毕节市,  Bijie,98,11,2
+  铜仁市,  Tongren,91,8,2
+云南省,Yunnan,,,
+  昆明市,  Kunming,32,19,8
+  曲靖市,  Qujing,66,16,5
+  玉溪市,  Yuxi,21,8,2
+  保山市,  Baoshan,121,12,3
+  昭通市,  Zhaotong,102,11,2
+  丽江市,  Lijiang,51,7,1
+  普洱市,  Pu'er,194,12,1
+  临沧市,  Lincang,112,9,1
+西藏自治区,Xizang,,,
+  拉萨市,  Lhasa,102,7,
+  日喀则市,  Xigazê,333,12,
+  昌都市,  Qamdo,,,
+  林芝市,  Nyingchi,2292,2,0
+  山南市,  Lhoka,712,5,
+  那曲市,  Nagqu,370,1,0
+陕西省,Shaanxi,,,
+  西安市,  Xi'an,44,21,10
+  铜川市,  Tongchuan,4,1,1
+  宝鸡市,  Baoji,46,7,3
+  咸阳市,  Xianyang,7,8,1
+  渭南市,  Weinan,13,15,4
+  延安市,  Yan'an,12,3,1
+  汉中市,  Hanzhong,147,16,5
+  榆林市,  Yulin,27,12,4
+  安康市,  Ankang,,7,2
+  商洛市,  Shangluo,78,3,1
+甘肃省,Gansu,,,
+  兰州市,  Lanzhou,2,10,5
+  嘉峪关市,  Jiayuguan,,3,
+  金昌市,  Jinchang,1,8,3
+  白银市,  Baiyin,1,10,2
+  天水市,  Tianshui,8,3,2
+  武威市,  Wuwei,15,19,8
+  张掖市,  Zhangye,21,21,7
+  平凉市,  Pingliang,7,3,1
+  酒泉市,  Jiuquan,41,25,7
+  庆阳市,  Qingyang,5,3,1
+  定西市,  Dingxi,10,3,1
+  陇南市,  Longnan,54,2,0
+青海省,Qinghai,,,
+  西宁市,  Xining,,5,
+  海东市,  Haidong,15,4,2
+宁夏回族自治区,Ningxia,,,
+  银川市,  Yinchuan,1,20,7
+  石嘴山市,  Shizuishan,1,12,4
+  吴忠市,  Wuzhong,1,17,5
+  固原市,  Guyuan,4,2,1
+  中卫市,  Zhongwei,,,
+新疆维吾尔自治区,Xinjiang,,,
+  乌鲁木齐市,  Urumqi,14,12,11
+  克拉玛依市,  Karamay,6,4,4
+  吐鲁番市,  Turpan,13,11,4
+  哈密市,  Hami,12,8,5
