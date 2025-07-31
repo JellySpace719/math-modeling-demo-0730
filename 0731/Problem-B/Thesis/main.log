@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.12)  31 JUL 2025 11:22
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.12)  31 JUL 2025 11:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,7 +309,9 @@ Package biblatex Info: ... and expl3
 Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
-)) (c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+)) (c:/texlive/2024/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+) (c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/05/23 v2.17q AMS math features
 \@mathmargin=\skip73
 
@@ -505,7 +507,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip88
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 29.
+Package hyperref Info: Option `colorlinks' set `true' on input line 30.
  (c:/texlive/2024/texmf-dist/tex/generic/xstring/xstring.sty (c:/texlive/2024/texmf-dist/tex/generic/xstring/xstring.tex
 \xs_counta=\count422
 \xs_countb=\count423
@@ -1305,7 +1307,7 @@ Package fontspec Info:
 (fontspec)             <->s*[1]"[TeXGyreTermesX-BoldSlanted.otf]/OT:script=latn;language=dflt;-ss05;+tnum;+lnum;+smcp;+pcap;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 194.
+(Font)              scaled to size 12.0pt on input line 195.
  (./main.aux
 
 LaTeX Warning: Label `' multiply defined.
@@ -1316,50 +1318,50 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 194.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 194.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 195.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 194.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 194.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 195.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 194.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 194.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 195.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 194.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 194.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 195.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 194.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 194.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 195.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    ... okay on input line 195.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1417,11 +1419,11 @@ Package biblatex Warning: File 'main.bbl' is wrong format version - expected 3.3
 
 Package biblatex Info: ... file 'main.bbl' found.
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 194.
-Package biblatex Info: Reference segment=0 on input line 194.
-LaTeX Info: Command `\dddot' is already robust on input line 194.
-LaTeX Info: Command `\ddddot' is already robust on input line 194.
-Package hyperref Info: Link coloring ON on input line 194.
+Package biblatex Info: Reference section=0 on input line 195.
+Package biblatex Info: Reference segment=0 on input line 195.
+LaTeX Info: Command `\dddot' is already robust on input line 195.
+LaTeX Info: Command `\ddddot' is already robust on input line 195.
+Package hyperref Info: Link coloring ON on input line 195.
  (c:/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (c:/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1636,7 +1638,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [10
 
-]
+])
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1647,19 +1649,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [11]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 153.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 153.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 153.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1667,85 +1656,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12]
-File: Ratio.jpg Graphic file (type bmp)
-<Ratio.jpg>
-File: CG_pred.jpg Graphic file (type bmp)
-<CG_pred.jpg>
-File: CG_pred2.jpg Graphic file (type bmp)
-<CG_pred2.jpg>
-File: GDP.jpg Graphic file (type bmp)
-<GDP.jpg>
-File: Emission.jpg Graphic file (type bmp)
-<Emission.jpg>
-File: Price.jpg Graphic file (type bmp)
-<Price.jpg>
-File: Cost.jpg Graphic file (type bmp)
-<Cost.jpg>
-File: Carbon_pred1.jpg Graphic file (type bmp)
-<Carbon_pred1.jpg>
-File: Carbon_pred2.jpg Graphic file (type bmp)
-<Carbon_pred2.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[13]
-Overfull \hbox (26.06152pt too wide) in paragraph at lines 249--252
-\TU/TeXGyreTermesX(0)/m/it/12 Vehicle_congestion_outside_of_downtown\TU/TeXGyreTermesX(0)/m/n/12 , \TU/TeXGyreTermesX(0)/m/it/12 Whale_watching_boat_traffic_and_wakes\TU/TeXGyreTermesX(0)/m/n/12 , \TU/TeXGyreTermesX(0)/m/it/12 Crowding_on_trails\TU/TeXGyreTermesX(0)/m/n/12 ,
- []
-
-File: 2dLinear_1.jpg Graphic file (type bmp)
-<2dLinear_1.jpg>
-File: 2dLinear_2.jpg Graphic file (type bmp)
-<2dLinear_2.jpg>
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 276.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[14]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[15]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16]
-File: Sensitivity_Analysis.png Graphic file (type bmp)
-<Sensitivity_Analysis.png>
-)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[17] (./sections/8.Task 2.tex
+[12] (./sections/8.Task 2.tex
 File: Ratio_Sitka.png Graphic file (type bmp)
 <Ratio_Sitka.png>
 File: CG_Sitka.png Graphic file (type bmp)
@@ -1771,7 +1682,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18
+[13
 
 ]
 File: Sensitivity_Analysis_Sitka.jpg Graphic file (type bmp)
@@ -1785,7 +1696,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19])
+[14])
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1794,7 +1705,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20] (./sections/9.Task 3.tex
+[15] (./sections/9.Task 3.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1803,9 +1714,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21
+[16
 
 ]) (./sections/Appendix.tex
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/it' will be
+(Font)              scaled to size 12.0pt on input line 8.
+
 Overfull \hbox (2.4923pt too wide) in paragraph at lines 22--23
 []$[] \U/ntxmia/m/it/12 = \OT1/minntx/m/n/12 2\OML/ntxmi/m/it/12 :\OT1/minntx/m/n/12 3146168698278767 \LMS/ntxsy/m/n/12 ^^B \OT1/minntx/m/n/12 10[]\OML/ntxmi/m/it/12 N \LMS/ntxsy/m/n/12 Ï \OT1/minntx/m/n/12 0\OML/ntxmi/m/it/12 :\OT1/minntx/m/n/12 01642522855234218 \LMS/ntxsy/m/n/12 ^^B \OML/ntxmi/m/it/12 N[] \LMS/ntxsy/m/n/12 ^^@
  []
@@ -1849,7 +1763,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22
+[17
 
 ]
 Overfull \hbox (8.09627pt too wide) in paragraph at lines 74--75
@@ -1870,7 +1784,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23] (./sections/Reference.tex
+[18] (./sections/Reference.tex
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/m/it' undefined
 (Font)              using `TU/SimSun(0)/m/n' instead on input line 6.
@@ -1884,7 +1798,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24
+[19
 
 ] (./sections/GPT.tex
 
@@ -1895,7 +1809,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25
+[20
 
 ])
 
@@ -1906,7 +1820,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26] 
+[21] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -1925,12 +1839,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34208 strings out of 474235
- 687098 string characters out of 5745817
- 1624447 words of memory out of 5000000
- 56309 multiletter control sequences out of 15000+600000
- 575686 words of font info for 117 fonts, out of 8000000 for 9000
+ 34249 strings out of 474235
+ 693674 string characters out of 5745817
+ 1629576 words of memory out of 5000000
+ 56358 multiletter control sequences out of 15000+600000
+ 575694 words of font info for 118 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,15n,108p,1846b,854s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,15n,108p,1870b,854s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (26 pages).
+Output written on main.pdf (21 pages).
