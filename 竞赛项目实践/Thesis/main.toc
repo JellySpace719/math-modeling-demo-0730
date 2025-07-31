@@ -1,0 +1,41 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Restatement and Analyses of the Problem}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Overview of Our Work}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Assumptions and Notations}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Assumptions}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Notations}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Preliminary Analyses}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Number of Tourists}{6}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}SARIMAX Model}{7}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Parameters Setting}{7}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Model Results}{7}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Number of Local Residents}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Population of Juneau}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Population Prediction}{8}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {4}Task 1: Model for Tourism Industry in Juneau}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Economy}{10}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Tourists' Consumption}{10}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Tax Income}{11}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Fines}{12}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Environment}{12}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}KAYA Model}{12}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}$KAYA_{Tourism}$ Model}{12}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Hidden Cost Factors}{13}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Data Processing}{14}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Entropy Weight Method}{14}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Convert to Probability Matrix}{15}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Calculate Information Entropy}{15}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Social Impact Model}{16}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Summary}{16}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Sensitivity Analysis}{17}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Task 2: Model Adaptation and Migration}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Procedure}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Results}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Analyses}{19}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Sensitivity Analysis}{19}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Task 3: Memo}{21}{section.6}%
+\contentsline {section}{Appendix \numberline {A}Bivariate Linear Regression Results}{22}{appendix.1.A}%
+\contentsline {section}{References}{24}{appendix.1.A}%
+\contentsfinish 
