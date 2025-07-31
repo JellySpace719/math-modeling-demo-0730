@@ -1,0 +1,5 @@
+,mean,sd,hdi_3%,hdi_97%
+mu_global,86.15517241379311,0,0,0
+sigma_college,3.1581165059134273,0,0,0
+sigma_expert_group,0.6980303552221729,0,0,0
+sigma_error,5.395303319372142,0,0,0
