@@ -1,9 +1,19 @@
 \documentclass[12pt]{article}
+
+
 \usepackage{geometry}
 % \usepackage{stmaryrd}
 % \usepackage{imakeidx}
 \geometry{left=1in,right=0.75in,top=1in,bottom=1in}
-
+%-----中文支持-----
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}           % Win默认宋体
+\setmainfont{SimSun}
+\setCJKsansfont{SimHei}           % 黑体
+\setCJKmonofont{FangSong}         % 仿宋
+\setmainfont{Times New Roman}     % 英文
+\xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Replace ABCDEF in the next line with your chosen problem
 % and replace 1111111 with your Team Control Number
@@ -55,14 +65,7 @@
 \usepackage{titlesec}
 %-----数学公式扩展-----
 \usepackage{mathtools}
-%-----中文支持-----
-\usepackage{fontspec}
-\usepackage{xeCJK}
-\setCJKmainfont{SimSun}           % Win默认宋体
-\setCJKsansfont{SimHei}           % 黑体
-\setCJKmonofont{FangSong}         % 仿宋
-\setmainfont{Times New Roman}     % 英文
-\xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
+
 %-----浮动体设置-----
 \usepackage{float}
 %-----书签设置-----
@@ -157,6 +160,10 @@
 \usepackage{fontspec}
 
 
+
+
+
+
 % --- 自定义命令 -----
 \newcommand{\CC}{\ensuremath{\mathbb{C}}}
 \newcommand{\RR}{\ensuremath{\mathbb{R}}}
@@ -210,7 +217,7 @@
 
 %%%%%%%%%%%%%目录%%%%%%%%%%%%%%
 
-\tableofcontents
+% \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
