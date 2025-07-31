@@ -13,24 +13,22 @@
 \contentsline {subsection}{\numberline {3.2}Number of Local Residents}{8}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Population of Juneau}{8}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Population Prediction}{8}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}问题1：两组专家评分的显著性差异及可信度分析}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}问题背景与研究意义}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}模型假设}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}变量与符号说明}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}分析流程与统计建模}{10}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}数据预处理与描述性分析}{10}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}配对显著性检验}{11}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}效应量评估}{11}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}专家组内一致性（信度）分析}{11}{subsubsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.5}多维判据综合}{11}{subsubsection.4.4.5}%
-\contentsline {subsection}{\numberline {4.5}结果与讨论（模板示例，后续需替换真实数据）}{11}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}小结}{12}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Task 2: Model Adaptation and Migration}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Procedure}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Results}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Analyses}{14}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Sensitivity Analysis}{14}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Task 3: Memo}{16}{section.6}%
-\contentsline {section}{Appendix \numberline {A}Bivariate Linear Regression Results}{17}{appendix.1.A}%
-\contentsline {section}{References}{19}{appendix.1.A}%
+\contentsline {section}{\numberline {4}问题一：两组专家对同批教师教学评价的差异性与可信度分析}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}问题重述}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}建模思路与分析流程}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}数据处理与描述性统计}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}显著性差异检验与效应量}{12}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}配对显著性检验}{12}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}效应量量化}{12}{subsubsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.5}专家组可靠性（内部一致性）分析}{12}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}综合判断与结论}{13}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}小结}{14}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Task 2: Model Adaptation and Migration}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Procedure}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Results}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Analyses}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Sensitivity Analysis}{17}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Task 3: Memo}{19}{section.6}%
+\contentsline {section}{Appendix \numberline {A}Bivariate Linear Regression Results}{20}{appendix.1.A}%
+\contentsline {section}{References}{22}{appendix.1.A}%
 \contentsfinish 
