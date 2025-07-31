@@ -1,25 +1,15 @@
-\section{Task 2: Model Adaptation and Migration}
+\section{问题二：基于学院打分特点的教师教学评分重计算模型构建}
 
-In the previous section, we have established a model to quantify 
-the tourism industry in Juneau. 
-Based on this model we take a further look at the city of Sitka, Alaska and
-test the model's adaptability and migration capability.
 
-The following analyses, calculations and predictions are identical to those done
-in the area of Juneau. The model is adapted to the city of Sitka, and the optimal tax rate, number of tourists, and fine rate are calculated.
+\subsection{问题重述}
 
-\subsection{Procedure}
+随着2024年该校将教师课堂教学评价任务下放至各学院自行组织，尽管此举旨在提升效率，但也随之带来了评分标准异质性、量尺使用偏差以及内部评价过程可能存在的系统性偏差等一系列挑战。具体表现为学院间评分区间差异显著、得分分布特性不一，以及部分学院内部评分机制可能引入局部偏差，这些因素均可能影响教师教学质量评价的客观性与公平性。本文需分析：
 
-We first calculated the CG of Sitka, Alaska, and utilized the results
-to predict the ratio of tourists to local residents in the next few years.
-The CG prediction is shown in subplot 2. After that, we extrapolate the relationship
-between CG and the number of tourists, and forcast GDP in the next few years.
-After that, according to equation (8), we forcast the amount of carbon emission
-from tourism in the next few years. The results are shown in subplot 5. In addition, 
-we assume that the price of carbon increases by 5\% each year, carbon price prediction 
-can thus be obtained. The results are shown in subplot 4. Finally, we use the equation
-$\text{Carbon Cost} = \text{Carbon Emission} \times \text{Carbon Price}$ to calculate the
-carbon cost in the next few years. The results are shown in subplot 7 and 8.
+\begin{enumerate}
+    \item 如何深入分析附件2中各学院的教学评分数据，识别并量化其在评分标准、打分范围和内部一致性等方面的特点与规律？
+    \item 如何提出并建立一个合理的数学模型，以有效消除或减少因学院间差异带来的偏差，对所有教师的教学评分进行重新计算与校准？
+    \item 如何对经过模型重新计算后的教师教学评分结果的公平性、有效性及合理性进行全面阐释？
+\end{enumerate}
 
 \subsection{Results}
 
