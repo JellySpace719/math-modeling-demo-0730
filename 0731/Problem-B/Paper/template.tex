@@ -120,22 +120,57 @@
 为简化问题，本文做出以下假设：
 
 \begin{itemize}[itemindent=2em]
-\item 假设1
-\item 假设2
-\item 假设3
+
+\item \textbf{假设1}教师评分数据涵盖全校所有学院，部分学院下有多个专家评分组，教师-专家组-学院关系已知。每条数据精确标注所属学院、专家组、教师编号。
+\item \textbf{假设2}各评分数据来源有完整记录，存在系统性偏差，但误差为独立同分布的高斯噪声。
+\item \textbf{假设3}不同学院和专家组存在固定但不可观测的评分风格差异（系统性偏倚），其分布为服从零均值正态分布的随机效应。
+\item \textbf{假设4}教师真实水平之间存在自然差异，模型需兼顾揭示教师个人差异与排除集体偏差。
+\item \textbf{假设5}系统性调整后，所有教师S的分数可在统一基准下比较，并拉伸回目标分布（如均值85、标准差5，截断于指定区间）。
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\section{符号说明}
+% \section{符号说明}
+% \begin{table}[H]
+% \centering
+% \begin{tabularx}{\textwidth}{CLC}
+% \toprule
+% 符号    & 说明    & 单位 \\
+% \midrule
+% $m     $& 质量 & $kg$ \\
+% $V     $& 体积 & $m^3$ \\
+
+% $S^{(1)}_i$& 第$i$位教师第一组专家的平均总分& 分 \\
+% $S^{(2)}_i$& 第$i$位教师第二组专家的平均总分& 分 \\
+% $D_i = S^{(1)}_i - S^{(2)}_i$& 第$i$位教师两组评分平均值差异& 分 \\
+% $S_{ijk}$& 第$i$学院，第$j$专家组，第$k$教师的原始总分& 分 \\
+% $\mu_\text{global}$& 全校教师评分总体均值& 分 \\
+% $\alpha_i$& 第$i$学院系统性偏差& 分 \\
+% $\beta_{ij}$& 第$i$学院第$j$专家组系统性偏差& 分 \\
+% $\epsilon_{ijk}$& 随机扰动，$\epsilon_{ijk} \sim\mathcal{N}(0, \sigma_{error}^2)$& 分 \\
+% \bottomrule
+% \end{tabularx}
+% \label{tab:符号说明}
+% \end{table}
+
+
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{CLC}
+% \caption{符号说明表}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{3cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}m{2cm}}
 \toprule
-符号    & 说明    & 单位 \\
+\textbf{符号}    & \textbf{说明}    & \textbf{单位} \\
 \midrule
-$m     $& 质量 & $kg$ \\
-$V     $& 体积 & $m^3$ \\
+% $m$                            & 质量                                      & kg \\
+% $V$                            & 体积                                      & m$^3$ \\
+$S^{(1)}_i$                    & 第 $i$ 位教师第一组专家的平均总分        & 分 \\
+$S^{(2)}_i$                    & 第 $i$ 位教师第二组专家的平均总分        & 分 \\
+$D_i = S^{(1)}_i - S^{(2)}_i$  & 第 $i$ 位教师两组评分平均值差异          & 分 \\
+$S_{ijk}$                      & 第 $i$ 学院，第 $j$ 专家组，第 $k$ 教师的原始总分 & 分 \\
+$\mu_\text{global}$            & 全校教师评分总体均值                      & 分 \\
+$\alpha_i$                     & 第 $i$ 学院系统性偏差                    & 分 \\
+$\beta_{ij}$                   & 第 $i$ 学院第 $j$ 专家组系统性偏差       & 分 \\
+$\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}(0, \sigma_{error}^2)$ & 分 \\
 \bottomrule
 \end{tabularx}
 \label{tab:符号说明}
@@ -145,6 +180,266 @@ $V     $& 体积 & $m^3$ \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \section{问题一的模型的建立和求解}
+
+\subsection{问题一的模型的建立和求解}
+\subsubsection{模型建立}
+本节通过数据预处理、描述性统计、配对显著性检验、效应量分析和组内一致性分析科学评估两组专家评分的差异及可信度。具体流程为：
+\begin{enumerate}
+    \item 针对原始多层次评分表，计算每位教师、每组专家的11项具体指标分数和总分，缺失值用其他专家均值填补，保证数据完整性。
+    \item 统计两组专家评分的均值、中位数、标准差、极差、偏度、峰度，用箱线图、直方图直观展示分布，辅助分析。
+    \item 对于同一批教师的配对评分，先用Shapiro-Wilk检验差值正态性。若通过，则用配对 t 检验检验均值差异，计算Cohen's $d$评估效应量。
+    \item 采用组内相关系数ICC(2,1)分析各组评分一致性。
+\end{enumerate}
+
+\subsubsection{模型求解}
+\textbf{Step1：} 数据清洗后，得出两组专家分别对$n$名教师的平均分，计算描述性统计量见下表。
+
+\begin{table}[H]
+\centering
+\caption{两组专家评分描述性统计}
+\label{tab:descstat}
+\begin{tabular}{lcc}
+\toprule
+统计指标 & 第一组专家评分 & 第二组专家评分 \\
+\midrule
+样本量      & 50        & 50        \\
+均值        & 88.54     & 86.18     \\
+标准差      & 4.34      & 5.35      \\
+最小值      & 77.00     & 76.00     \\
+极差        & 20.90     & 23.00     \\
+偏度        & -0.23     & 0.23      \\
+峰度        & -0.05     & -0.68     \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+\textbf{Step2：} 配对分数差值$D_i$经Shapiro-Wilk检验$ p = 0.187 $，可视为正态，使用配对t检验，$p=0.001$，存在显著性差异。Cohen's $d=0.52$，为中等效应。
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/descriptive_statistics.png}
+% \caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/normality_test.png}
+% \caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\textbf{Step3：} 组内一致性分析，ICC(2,1)结果分别为：第一组$0.518$（中等一致性），第二组$0.323$（较差）。第一组评分标准和稳定性明显优于第二组。
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/icc_analysis.png}
+% \caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\subsubsection{求解结果}
+综合上述结果，两组专家评分在统计意义上有显著差异，第一组评分一致性更高，更具可信度。在评价体系优化和权重调整时建议优先参考一致性更高的专家组评分。
+
+
+\subsection{问题二的模型的建立和求解}
+\subsubsection{模型建立}
+\textbf{层级贝叶斯模型结构}
+分为三层：
+\begin{align*}
+    S_{ijk} &\sim \mathcal{N}(\mu_{global} + \alpha_i + \beta_{ij},\ \sigma_{error}^2) \\
+    \alpha_i &\sim \mathcal{N}(0,\ \sigma_{college}^2) \\
+    \beta_{ij} &\sim \mathcal{N}(0,\ \sigma_{expert\_group}^2)
+\end{align*}
+其中$\sigma_{college}$和$\sigma_{expert\_group}$分别表征学院间、专家组间系统性变异程度。
+
+\textbf{参数先验与贝叶斯推断}
+\begin{itemize}
+    \item $\mu_{global}$ 选宽阔正态分布为先验，$\sigma_{error},\ \sigma_{college},\ \sigma_{expert\_group}$可选Inverse-Gamma等弱信息先验。
+    \item 采用马尔科夫链蒙特卡洛（MCMC）等方法采样后验，实现参数估计与不确定性量化。
+\end{itemize}
+
+\subsection{模型求解}
+\textbf{Step 1：模型拟合与参数后验估计}
+\begin{enumerate}
+    \item 整理原始数据$(S_{ijk})$，按“学院-专家组-教师”嵌套输入；
+    \item 用Bayesian工具（如PyMC3、Stan等）编码上述分层模型，设定先验；
+    \item 运行MCMC，检查traceplot与Rhat指标，确保收敛，获取各层次效应的后验分布和均值估计；
+    \item 计算$\widehat{\mu}_{global}$、$\widehat{\alpha}_{i}$、$\widehat{\beta}_{ij}$并保存。
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/Diagnostics/college_effects_forest.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/Diagnostics/expert_group_effects_forest.png}
+    \end{minipage}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Diagnostics/posterior_plots.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/EDA/college_scores_boxplot.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Diagnostics/trace_plots.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Results_Visualization/college_scores_comparison.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Results_Visualization/rank_comparison_scatter.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Results_Visualization/score_distributions_comparison.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/Diagnostics/trace_plots.png}
+\caption{单图}
+\label{fig:单图}
+\end{figure}
+
+\textbf{Step 2：系统性偏差校正与分数标准化}
+\begin{itemize}
+    \item 对每一位教师的得分$S_{ijk}$，计算剥离偏差后的校正分数：
+    $$
+    \widetilde{S}_{ijk} = S_{ijk} - \widehat{\alpha}_i - \widehat{\beta}_{ij} + \widehat{\mu}_{global}
+    $$
+    \item 再对校正分进行标准化映射，使全校分数均值定为85、标准差为5（限制在$[60,100]$区间）：
+    $$
+    S_{final} = \min \left\{100,\ \max\left[60,\ 85 + 5 \times \frac{\widetilde{S}_{ijk} - \overline{\widetilde{S}}}{\widehat{\sigma}_{\widetilde{S}}}\right]\right\}
+    $$
+    其中$\overline{\widetilde{S}}$为所有校正分均值，$\widehat{\sigma}_{\widetilde{S}}$为标准差。
+\end{itemize}
+\textbf{Step 3：结果分析与可视化}
+\begin{itemize}
+    \item 校正前后各学院均值、极差和分布特征变化：原始极差常超10分，标准化后$<3$分且分布更近正态；
+    \item 可用直方图、箱线图等展示分布压缩与公平性，排名对比图揭示个人排位变化；
+    \item 后验分析$\widehat{\sigma}_{college}$和$\widehat{\sigma}_{expert\_group}$：若很小，表明校正后学院/组间差异已基本消除。
+\end{itemize}
+
+\subsubsection{求解结果}
+标准化前各学院分数极差高达10+分，校正后缩小到约3分，数据分布更接近正态，极端差异明显减少。部分教师因去除了系统性专家组偏差，其排名发生显著改变，提升了整个评分体系的公平和可比性。分层贝叶斯模型可有效用于多层分组评分系统的校正与评价。
+
+% \section{问题二的模型的建立和求解}
+% \subsection{模型建立}
+% 为解决各学院评分标准不一致、分布极差大的问题，本文构建了基于分层贝叶斯（Hierarchical Bayesian Model, HBM）的评分标准化校正模型。建模核心过程如下：
+
+% \textbf{1. 模型假设}
+% \begin{itemize}
+%     \item 教师评分数据涵盖全校所有学院，部分学院下有多个专家组，教师-专家组-学院关系已知，数据完整无缺失或已补齐；
+%     \item 各学院和专家组均存在固定但未知的系统性评分偏差（如评分偏松或偏紧），评分误差服从独立同分布正态噪声；
+%     \item 教师真实教学水平存在客观差异，目标是还原、剥除非个人能力因素对分数的系统性干扰。
+% \end{itemize}
+
+% \textbf{2. 变量定义}
+% \begin{itemize}
+%     \item $S_{ijk}$：第$i$学院第$j$专家组第$k$教师的原始评价得分；
+%     \item $\mu_{global}$：全校教师真实整体水平均值；
+%     \item $\alpha_i$：第$i$学院的系统性评分偏差（学院偏效应）；
+%     \item $\beta_{ij}$：第$i$学院第$j$专家组的系统性评分偏差（小组偏效应）；
+%     \item $\epsilon_{ijk}$：独立误差项，$\epsilon_{ijk} \sim \mathcal{N}(0, \sigma_{error}^2)$。
+% \end{itemize}
+
+% \textbf{3. 层级贝叶斯模型结构}
+
+% 模型分为三层：
+% \begin{align*}
+%     S_{ijk} &\sim \mathcal{N}(\mu_{global} + \alpha_i + \beta_{ij},\ \sigma_{error}^2) \\
+%     \alpha_i &\sim \mathcal{N}(0,\ \sigma_{college}^2) \\
+%     \beta_{ij} &\sim \mathcal{N}(0,\ \sigma_{expert\_group}^2)
+% \end{align*}
+% 其中$\sigma_{college}$和$\sigma_{expert\_group}$分别表征学院间、专家组间系统性变异程度。
+
+% \textbf{4. 参数先验与贝叶斯推断}
+% \begin{itemize}
+%     \item $\mu_{global}$ 选宽阔正态分布为先验，$\sigma_{error},\ \sigma_{college},\ \sigma_{expert\_group}$可选Inverse-Gamma等弱信息先验。
+%     \item 采用马尔科夫链蒙特卡洛（MCMC）等方法采样后验，实现参数估计与不确定性量化。
+% \end{itemize}
+
+% \subsection{模型求解}
+% \textbf{Step 1：模型拟合与参数后验估计}
+% \begin{enumerate}
+%     \item 整理原始数据$(S_{ijk})$，按“学院-专家组-教师”嵌套输入；
+%     \item 用Bayesian工具（如PyMC3、Stan等）编码上述分层模型，设定先验；
+%     \item 运行MCMC，检查traceplot与Rhat指标，确保收敛，获取各层次效应的后验分布和均值估计；
+%     \item 计算$\widehat{\mu}_{global}$、$\widehat{\alpha}_{i}$、$\widehat{\beta}_{ij}$并保存。
+% \end{enumerate}
+
+% \textbf{Step 2：系统性偏差校正与分数标准化}
+% \begin{itemize}
+%     \item 对每一位教师的得分$S_{ijk}$，计算剥离偏差后的校正分数：
+%     $$
+%     \widetilde{S}_{ijk} = S_{ijk} - \widehat{\alpha}_i - \widehat{\beta}_{ij} + \widehat{\mu}_{global}
+%     $$
+%     \item 再对校正分进行标准化映射，使全校分数均值定为85、标准差为5（限制在$[60,100]$区间）：
+%     $$
+%     S_{final} = \min \left\{100,\ \max\left[60,\ 85 + 5 \times \frac{\widetilde{S}_{ijk} - \overline{\widetilde{S}}}{\widehat{\sigma}_{\widetilde{S}}}\right]\right\}
+%     $$
+%     其中$\overline{\widetilde{S}}$为所有校正分均值，$\widehat{\sigma}_{\widetilde{S}}$为标准差。
+% \end{itemize}
+
+% \textbf{Step 3：结果分析与可视化}
+% \begin{itemize}
+%     \item 校正前后各学院均值、极差和分布特征变化：原始极差常超10分，标准化后$<3$分且分布更近正态；
+%     \item 可用直方图、箱线图等展示分布压缩与公平性，排名对比图揭示个人排位变化；
+%     \item 后验分析$\widehat{\sigma}_{college}$和$\widehat{\sigma}_{expert\_group}$：若很小，表明校正后学院/组间差异已基本消除。
+% \end{itemize}
+
+% \textbf{Step 4：方法解释与优势}
+% \begin{itemize}
+%     \item 该模型能自动校正系统性误差，体现分层收缩效应（小样本极端分数被全体均值牵引），不同规模学院均获得更公平评价；
+%     \item 全流程可复现，可追踪异常组织（如偏紧/松专家组），有利于后续高校管理与优化；
+%     \item 标准化分数便于历年/全校横向比较，实现科学、公正的汇总排名。
+% \end{itemize}
+
+
+
 \subsection{模型建立}
 
 $$
