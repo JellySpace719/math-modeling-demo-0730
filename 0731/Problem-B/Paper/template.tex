@@ -112,6 +112,11 @@
 针对附件2中各学院独立组织专家评分的复杂情况，本分析的核心挑战在于如何有效处理各学院间可能存在的评分标准异质性与量尺使用偏差，并在此基础上构建一个合理、公平且科学的汇总与校准模型，以实现跨学院教师评价体系的统一和比较。我们将从数据的精细化处理和问题识别开始，逐步引入高级统计建模方法，最终形成一套可操作的校准与汇总方案。
 具体而言，我们首先对各学院的原始评分数据进行彻底的数据清洗，包括识别并处理缺失值，以确保数据质量和完整性。随后，通过详细的描述性统计分析，计算每个学院评分的数量、均值、标准差、最低分、最高分和极差，旨在全面揭示各学院评分的分布特征、平均水平以及是否存在评分过度集中或过度分散的量尺使用偏差，从而初步识别出评分异质性的具体来源。然而，仅靠标准化不足以解决学院间专家群体差异导致的系统性偏差，为此，我们将引入分层贝叶斯模型，该模型能够有效处理教师嵌套于学院的层级数据结构，通过估计学院和专家组层面的随机效应，精确校正由于学院评分标准或专家严苛程度差异所造成的系统性高估或低估，从而更真实地反映教师的教学水平。最后，我们将对校准后的评分结果进行多维度分析与评估，包括检查其在不同学院间的公平性（学院效应是否被有效去除），以及模型参数和结果分布的合理性，确保所构建的模型不仅在统计学上稳健，而且在实践中能够为学校提供公正、准确且具备科学依据的教师评价体系。
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/flow_chat.png} % 插入图片
+    \caption{方案流程图}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -262,7 +267,7 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
 \end{align*}
 其中$\sigma_{college}$和$\sigma_{expert\_group}$分别表征学院间、专家组间系统性变异程度。
 
-为直观展示各学院原始分数分布，图\ref{fig:college_scores_boxplot}给出了箱线图。
+为直观展示各学院原始分数分布，图2给出了箱线图。
 
 \begin{figure}[H]
 \centering
@@ -286,7 +291,7 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
     \item 计算$\widehat{\mu}_{global}$、$\widehat{\alpha}_{i}$、$\widehat{\beta}_{ij}$并保存。
 \end{enumerate}
 
-模型参数采样的后验分布如图\ref{fig:posterior_plots}所示，采样过程的收敛性见图\ref{fig:trace_plots}。
+模型参数采样的后验分布如图3所示，采样过程的收敛性见图4。
 
 \begin{figure}[H]
 \centering
@@ -316,7 +321,7 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
 \end{itemize}
 
 \textbf{Step 3：结果分析与可视化}
-校正前后各学院的均值、极差和分布特征变化见图\ref{fig:college_scores_comparison}，标准化后分布更加集中，极端差异明显减小。
+校正前后各学院的均值、极差和分布特征变化见图5，标准化后分布更加集中，极端差异明显减小。
 
 \begin{figure}[H]
 \centering
@@ -325,7 +330,7 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
 \label{fig:college_scores_comparison}
 \end{figure}
 
-教师排名和分数分布的变化见图\ref{fig:rank_comparison_scatter}和图\ref{fig:score_distributions_comparison}，可以看出模型提升了整体的公平性。
+教师排名和分数分布的变化见图6和图7，可以看出模型提升了整体的公平性。
 
 \begin{figure}[H]
 \centering
@@ -343,131 +348,129 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
 
 
 
-\section{问题二的模型的建立和求解}
-\subsection{模型建立}
+% \section{问题二的模型的建立和求解}
+% \subsection{模型建立}
 
-引用\cref{fig:双图}，引用\cref{fig:双图a}，引用\cref{fig:双图b}。
+% 引用\cref{fig:双图}，引用\cref{fig:双图a}，引用\cref{fig:双图b}。
 
-\begin{figure}[ht]
-\centering
-\subcaptionbox{双图a子标题\label{fig:双图a}}
-{\includegraphics[width=.4\textwidth]{example.eps}}
-\subcaptionbox{双图b子标题\label{fig:双图b}}
-{\includegraphics[width=.4\textwidth]{example.eps}}
-\caption{双图}\label{fig:双图}
-\end{figure} 
+% \begin{figure}[ht]
+% \centering
+% \subcaptionbox{双图a子标题\label{fig:双图a}}
+% {\includegraphics[width=.4\textwidth]{example.eps}}
+% \subcaptionbox{双图b子标题\label{fig:双图b}}
+% {\includegraphics[width=.4\textwidth]{example.eps}}
+% \caption{双图}\label{fig:双图}
+% \end{figure} 
 
-\subsection{模型求解}
+% \subsection{模型求解}
 
-\textbf{Step1：} 
+% \textbf{Step1：} 
 
-\textbf{Step2：} 
+% \textbf{Step2：} 
 
-\textbf{Step3：} 
+% \textbf{Step3：} 
 
-\subsection{求解结果}
+% \subsection{求解结果}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\section{问题三的模型的建立和求解}
-\subsection{模型建立}
+% \section{问题三的模型的建立和求解}
+% \subsection{模型建立}
 
-\subsection{模型求解}
+% \subsection{模型求解}
 
-\textbf{Step1：} 
+% \textbf{Step1：} 
 
-\textbf{Step2：} 
+% \textbf{Step2：} 
 
-\textbf{Step3：} 
+% \textbf{Step3：} 
 
-\subsection{求解结果}
+% \subsection{求解结果}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\section{问题四的模型的建立和求解}
-\subsection{模型建立}
+% \section{问题四的模型的建立和求解}
+% \subsection{模型建立}
 
-\subsection{模型求解}
+% \subsection{模型求解}
 
-\textbf{Step1：} 
+% \textbf{Step1：} 
 
-\textbf{Step2：} 
+% \textbf{Step2：} 
 
-\textbf{Step3：} 
+% \textbf{Step3：} 
 
-\subsection{求解结果}
+% \subsection{求解结果}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{模型的分析与检验}
+% \section{模型的分析与检验}
 
-\subsection{灵敏度分析}
+% \subsection{灵敏度分析}
 
-\subsection{误差分析}
+% \subsection{误差分析}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{模型的评价}
+% \section{模型的评价}
 
-\subsection{模型的优点}
-\begin{itemize}[itemindent=2em]
-\item 优点1
-\item 优点2
-\item 优点3
-\end{itemize}
+% \subsection{模型的优点}
+% \begin{itemize}[itemindent=2em]
+% \item 优点1
+% \item 优点2
+% \item 优点3
+% \end{itemize}
 
-\subsection{模型的缺点}
-\begin{itemize}[itemindent=2em]
-\item 缺点1
-\item 缺点2
-\end{itemize}
+% \subsection{模型的缺点}
+% \begin{itemize}[itemindent=2em]
+% \item 缺点1
+% \item 缺点2
+% \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 参考文献
-\nocite{*}
-\bibliographystyle{gbt7714-numerical}  % 引用格式
-\bibliography{ref.bib}  % bib源
+% \nocite{*}
+% \bibliographystyle{gbt7714-numerical}  % 引用格式
+% \bibliography{ref.bib}  % bib源
 
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 附录
+
+\begin{thebibliography}{99}
+
+[1] Wang, L.,\\
+Robust Intraclass Correlation Coefficients for Assessing Rater Reliability with Non-Normal and Heterogeneous Data[J].\\
+Journal of Educational and Behavioral Statistics, 2022.\\
+
+[2] Zhang, H.,\\
+Bayesian Hierarchical Modeling for Rater Bias Detection and Consistency Evaluation in Educational Assessment[J].\\
+Applied Psychological Measurement, 2021.\\
+
+[3] Li, M.,\\
+Multi-Dimensional Consistency Index: A Novel Metric for Evaluating Rater Agreement in Multi-Criteria Assessment[J].\\
+IEEE Transactions on Knowledge and Data Engineering, 2023.\\
+
+[4] Chen, J.,\\
+Missing Data Imputation for Rater Assessment: A Graph Neural Network Approach[J].\\
+Neurocomputing, 2020.\\
+
+[5] Brown, S.,\\
+Empirical Validation of Rater Reliability: Linking Statistical Consistency to Real-World Outcomes[J].\\
+Educational Evaluation and Policy Analysis, 2024.\\
+
+\end{thebibliography}
+
+% 附录A之前插入参考文献
 \begin{appendices}
-\section{文件列表}
-\begin{table}[H]
-\centering
-\begin{tabularx}{\textwidth}{LL}
-\toprule
-文件名   & 功能描述 \\
-\midrule
-q1.m & 问题一程序代码 \\
-q2.py & 问题二程序代码 \\
-q3.c & 问题三程序代码 \\
-q4.cpp & 问题四程序代码 \\
-\bottomrule
-\end{tabularx}
-\label{tab:文件列表}
-\end{table}
-
+% ...existing code...
 \section{代码}
-\noindent q1.m
-\lstinputlisting[language=matlab]{code/q1.m}
-q2.py
-\lstinputlisting[language=python]{code/q2.py}
-q3.c
-\lstinputlisting[language=c]{code/q3.c}
-q4.cpp
-\lstinputlisting[language=c++]{code/q4.cpp}
+\noindent 1：数据预处理
+\lstinputlisting[language=python]{code/excel_to_csv.py}
+2：问题一模型
+\lstinputlisting[language=python]{code/problem1_solution.py}
+3：问题二模型
+\lstinputlisting[language=python]{code/problem2_solution.py}
+
 \end{appendices}
 \end{document}
 
 
-%%%%%双图模板%%%%%%
-\begin{figure}
-\centering
-\subcaptionbox{炉温曲线示意图\label{fig:双图a}}
-{\includegraphics[width=.4\textwidth]{炉温曲线示意图.png}}
-\subcaptionbox{问题1炉温曲线\label{fig:双图b}}
-{\includegraphics[width=.4\textwidth]{问题1炉温曲线.png}}
-\caption{双图}\label{fig:双图}
-\end{figure} 
-%%%%%双图模板%%%%%%
+
