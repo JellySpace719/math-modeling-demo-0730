@@ -12,17 +12,10 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
-
 \usepackage{multirow}
 \usepackage{array}
 
-
-
-
-
-
-
-\title{B题：教师的教学评价模型建立与求解}  % 论文标题
+\title{全国大学生数学建模竞赛论文模板}  % 论文标题
 \tihao{}  % 题号
 \baominghao{}  % 报名号
 \schoolname{}  % 学校
@@ -56,16 +49,20 @@
 \maketitle
 
 \begin{abstract}
-
-近年来，随着高校教师职称评定对课堂教学评价的重视，如何确保教学评分的科学性与公平性成为亟需解决的问题。
-    本文针对某校教师教学评价体系，从专家组集中评审到学院分散评比的改革入手，综合利用数学统计方法和标准化处理手段，分析评审数据的分布规律与偏差来源。
-    首先，采用配对样本t检验等统计方法，对2023年由学校统一组织两组专家对同一批教师的评价结果进行差异性分析，判断两组评分的显著性差异及结果可信性。
-    其次，针对2024年各学院分别评分导致的极差差异和标准不统一等问题，结合描述性统计分析、标准化转换（如Z-score标准化、极差调整等）探究各学院评分分布特征，提出基于归一化方法的全校教师评分汇总模型。
-    通过该模型，有效消除学院之间评分尺度差异，实现了教师评分的公平可比。
-    最终，通过对模型结果的合理性分析，证明了所提汇总方法的科学性与实用性，为高校教师评价体系的规范化与优化提供了数据支撑与理论参考。
-
-\keywords{教师教学评价、评分标准化、统计分析、分组差异、评分汇总方法}
-\end{abstract}
+    母亲的身心健康对婴儿的早期成长和发展具有重要影响。已有研究表明，母亲的身体状况以及心理健康（如压力、抑郁、焦虑等）不仅关系到婴儿的生理健康，还会影响婴儿的认知、情感、社会行为等多方面成长。婴儿的行为特征和睡眠质量常常作为衡量婴儿发展状况的重要指标。基于这方面的专业背景，本文对相关影响机制进行了研究与建模。
+    
+    \textbf{对于问题一,}本文通过分析390名婴儿及其母亲的身体和心理相关指标数据，研究了母亲因素对婴儿行为特征和睡眠质量的影响关系。
+    
+    \textbf{对于问题二,}基于婴儿行为问卷，将婴儿行为特征划分为安静型、中等型和矛盾型，建立了行为特征与母亲身体、心理指标之间的数学关系模型，并利用该模型预测了20组缺失婴儿行为类型。
+    
+    \textbf{对于问题三,}建立了CBTS、EPDS、HADS评分与治疗费用的关联模型，针对编号238的矛盾型婴儿，分析通过最小治疗费用使其行为特征由矛盾型转变为中等型和安静型的策略及调整路径。
+    
+    \textbf{对于问题四,}选取婴儿睡眠的多项指标，综合评判睡眠质量，并建立母亲各项指标与婴儿综合睡眠质量的关联模型，进而预测缺失数据婴儿的睡眠类别。
+    
+    最后，结合模型结果，对如何提升238号婴儿的睡眠质量等级为优提出了具体的治疗方案和优化建议。
+    
+    \keywords{母亲心理健康\quad  婴儿成长\quad  行为特征\quad  睡眠质量 \quad 数学建模}
+    \end{abstract}
 \end{samepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -75,48 +72,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \section{问题重述}
 \subsection{问题背景}
-大多数高校教师在评定职称时，需要进行课堂教学评分，从而确定教师的教
-学质量。教务处或者教师发展中心的领导一般是通过聘请一批有资质的教学专家
-进行听课。每个专家在对教师听课后对其分类指标打分，然后求和得到其总分，
-从而确定教师的教学质量。
-由于参评教师越来越多，为了提升效率，从2024年开始某学校将评价教师
-的任务分配到每个学院自行评价，每个学院组织本学院的专家进行课堂评价，最
-后仅提供每个教师的总分给学校，但是这样的评价存在以下问题：一是各个学院
-之间打分差距大，评分标准不统一，比如：某学院最高分80分，某学院最高分
-99 分，汇总到学校后导致总体评价出现偏差；二是某些学院极差极小（最高分
-最低分），某些学院极差极大，直接使用也会导致总体评价出现偏差；三是某些
-学院会把教师随机分成几组，每组选派不同的专家进行评分，这种方式在某些特
-殊情况下也会导致局部评价出现偏差。
+问题背景
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\subsection{问题提出}
+\subsection{问题要求}
 
-在以上的问题背景下，结合附件数据集，建立数学模型解决以下问题：
+\textbf{问题1}  
 
-\textbf{问题1}分析附件1中学校组织的两组专家对同一批教师的教学评价结果有无显
-著性差异，哪一组结果更可信？
+\textbf{问题2}  
 
-\textbf{问题2}根据附件2中的数据，分析各个学院的打分特点与规律，给出一种合理的
-汇总方式，在此基础上建立数学模型，重新计算所有教师的教学评分，并对结果
-的合理性进行解释。
+\textbf{问题3} 
+
+\textbf{问题4}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \section{问题分析}
-\subsection{问题1分析}
-针对附件1中，学校统一组织的两组专家对同一批教师进行的教学评价，本分析的核心目标在于深入探究这两组评分是否存在显著性差异，以及在差异存在或不存在的情况下，哪一组结果更具可信度。这项分析将从数据的基本特性入手，逐步深入至严谨的统计推断和一致性评估，最终为学校未来优化教师评价体系提供坚实的科学依据。
-为此，我们首先进行全面的数据初步审视与描述性分析，计算每组评分的均值、中位数以揭示集中趋势，并通过方差、标准差和极差来衡量数据的离散程度，旨在直观了解两组评分的整体概貌、分布范围及潜在的集中/分散模式。接着，在进行参数统计检验前，我们严格执行数据分布特性检验，运用Shapiro-Wilk检验评估评分差值是否服从正态分布，以确保后续统计方法选择的准确性与稳健性。在此基础上，我们将针对两组评分差异进行显著性检验，考虑到数据具有配对性质，若差值满足正态性假设则采用配对t检验，否则选用Wilcoxon符号秩检验，以判断两组专家在平均水平上是否存在统计学意义上的显著差异。更进一步地，为全面评估评分的可靠性和可信度，我们将引入组内相关系数（ICC），此指标能够量化两组专家评分之间的一致性程度，即它们在多大程度上对同一教师给出了相似的评价排序。最终，我们将综合显著性检验结果、ICC值以及描述性统计数据，对两组专家评分的可信度做出综合判断，并基于此为评价体系的优化方向，如专家遴选、培训及标准统一等，提出具体建议。
+\subsection{问题一分析}
+对于问题一，
 
-\subsection{问题2分析}	
-针对附件2中各学院独立组织专家评分的复杂情况，本分析的核心挑战在于如何有效处理各学院间可能存在的评分标准异质性与量尺使用偏差，并在此基础上构建一个合理、公平且科学的汇总与校准模型，以实现跨学院教师评价体系的统一和比较。我们将从数据的精细化处理和问题识别开始，逐步引入高级统计建模方法，最终形成一套可操作的校准与汇总方案。
-具体而言，我们首先对各学院的原始评分数据进行彻底的数据清洗，包括识别并处理缺失值，以确保数据质量和完整性。随后，通过详细的描述性统计分析，计算每个学院评分的数量、均值、标准差、最低分、最高分和极差，旨在全面揭示各学院评分的分布特征、平均水平以及是否存在评分过度集中或过度分散的量尺使用偏差，从而初步识别出评分异质性的具体来源。然而，仅靠标准化不足以解决学院间专家群体差异导致的系统性偏差，为此，我们将引入分层贝叶斯模型，该模型能够有效处理教师嵌套于学院的层级数据结构，通过估计学院和专家组层面的随机效应，精确校正由于学院评分标准或专家严苛程度差异所造成的系统性高估或低估，从而更真实地反映教师的教学水平。最后，我们将对校准后的评分结果进行多维度分析与评估，包括检查其在不同学院间的公平性（学院效应是否被有效去除），以及模型参数和结果分布的合理性，确保所构建的模型不仅在统计学上稳健，而且在实践中能够为学校提供公正、准确且具备科学依据的教师评价体系。
+\subsection{问题二分析}	
+对于问题二，
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/flow_chat.png} % 插入图片
-    \caption{方案流程图}
-\end{figure}
+\subsection{问题三分析}
+对于问题三，
+
+\subsection{问题四分析}
+对于问题四，
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -125,57 +108,22 @@
 为简化问题，本文做出以下假设：
 
 \begin{itemize}[itemindent=2em]
-
-\item \textbf{假设1}教师评分数据涵盖全校所有学院，部分学院下有多个专家评分组，教师-专家组-学院关系已知。每条数据精确标注所属学院、专家组、教师编号。
-\item \textbf{假设2}各评分数据来源有完整记录，存在系统性偏差，但误差为独立同分布的高斯噪声。
-\item \textbf{假设3}不同学院和专家组存在固定但不可观测的评分风格差异（系统性偏倚），其分布为服从零均值正态分布的随机效应。
-\item \textbf{假设4}教师真实水平之间存在自然差异，模型需兼顾揭示教师个人差异与排除集体偏差。
-\item \textbf{假设5}系统性调整后，所有教师S的分数可在统一基准下比较，并拉伸回目标分布（如均值85、标准差5，截断于指定区间）。
+\item 假设1
+\item 假设2
+\item 假设3
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-% \section{符号说明}
-% \begin{table}[H]
-% \centering
-% \begin{tabularx}{\textwidth}{CLC}
-% \toprule
-% 符号    & 说明    & 单位 \\
-% \midrule
-% $m     $& 质量 & $kg$ \\
-% $V     $& 体积 & $m^3$ \\
-
-% $S^{(1)}_i$& 第$i$位教师第一组专家的平均总分& 分 \\
-% $S^{(2)}_i$& 第$i$位教师第二组专家的平均总分& 分 \\
-% $D_i = S^{(1)}_i - S^{(2)}_i$& 第$i$位教师两组评分平均值差异& 分 \\
-% $S_{ijk}$& 第$i$学院，第$j$专家组，第$k$教师的原始总分& 分 \\
-% $\mu_\text{global}$& 全校教师评分总体均值& 分 \\
-% $\alpha_i$& 第$i$学院系统性偏差& 分 \\
-% $\beta_{ij}$& 第$i$学院第$j$专家组系统性偏差& 分 \\
-% $\epsilon_{ijk}$& 随机扰动，$\epsilon_{ijk} \sim\mathcal{N}(0, \sigma_{error}^2)$& 分 \\
-% \bottomrule
-% \end{tabularx}
-% \label{tab:符号说明}
-% \end{table}
-
-
+\section{符号说明}
 \begin{table}[H]
 \centering
-% \caption{符号说明表}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{3cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}m{2cm}}
+\begin{tabularx}{\textwidth}{CLC}
 \toprule
-\textbf{符号}    & \textbf{说明}    & \textbf{单位} \\
+符号    & 说明    & 单位 \\
 \midrule
-% $m$                            & 质量                                      & kg \\
-% $V$                            & 体积                                      & m$^3$ \\
-$S^{(1)}_i$                    & 第 $i$ 位教师第一组专家的平均总分        & 分 \\
-$S^{(2)}_i$                    & 第 $i$ 位教师第二组专家的平均总分        & 分 \\
-$D_i = S^{(1)}_i - S^{(2)}_i$  & 第 $i$ 位教师两组评分平均值差异          & 分 \\
-$S_{ijk}$                      & 第 $i$ 学院，第 $j$ 专家组，第 $k$ 教师的原始总分 & 分 \\
-$\mu_\text{global}$            & 全校教师评分总体均值                      & 分 \\
-$\alpha_i$                     & 第 $i$ 学院系统性偏差                    & 分 \\
-$\beta_{ij}$                   & 第 $i$ 学院第 $j$ 专家组系统性偏差       & 分 \\
-$\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}(0, \sigma_{error}^2)$ & 分 \\
+$m     $& 质量 & $kg$ \\
+$V     $& 体积 & $m^3$ \\
 \bottomrule
 \end{tabularx}
 \label{tab:符号说明}
@@ -184,293 +132,362 @@ $\epsilon_{ijk}$               & 随机扰动，$\epsilon_{ijk} \sim \mathcal{N}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\section{问题一的模型建立和求解}
-
-\subsection{问题一的模型的建立和求解}
-\subsubsection{模型建立}
-本节通过数据预处理、描述性统计、配对显著性检验、效应量分析和组内一致性分析科学评估两组专家评分的差异及可信度。具体流程为：
-\begin{enumerate}
-    \item 针对原始多层次评分表，计算每位教师、每组专家的11项具体指标分数和总分，缺失值用其他专家均值填补，保证数据完整性。
-    \item 统计两组专家评分的均值、中位数、标准差、极差、偏度、峰度，用箱线图、直方图直观展示分布，辅助分析。
-    \item 对于同一批教师的配对评分，先用Shapiro-Wilk检验差值正态性。若通过，则用配对 t 检验检验均值差异，计算Cohen's $d$评估效应量。
-    \item 采用组内相关系数ICC(2,1)分析各组评分一致性。
-\end{enumerate}
-
-\subsubsection{模型求解}
-\textbf{Step1：} 数据清洗后，得出两组专家分别对$n$名教师的平均分，计算描述性统计量见下表。
-
-\begin{table}[H]
-\centering
-\caption{两组专家评分描述性统计}
-\label{tab:descstat}
-\begin{tabular}{lcc}
-\toprule
-统计指标 & 第一组专家评分 & 第二组专家评分 \\
-\midrule
-样本量      & 50        & 50        \\
-均值        & 88.54     & 86.18     \\
-标准差      & 4.34      & 5.35      \\
-最小值      & 77.00     & 76.00     \\
-极差        & 20.90     & 23.00     \\
-偏度        & -0.23     & 0.23      \\
-峰度        & -0.05     & -0.68     \\
-\bottomrule
-\end{tabular}
-\end{table}
+\section{问题一的模型的建立和求解}
 
 
+\subsection{数据预处理与特征工程}
+高质量的数据是构建有效模型的基础。针对原始数据集，我们进行了以下关键的数据预处理和特征工程步骤：
 
+\subsubsection{睡眠时间格式转换}
+原始数据中婴儿“整晚睡眠时间”以“HH:MM”字符串格式记录，且存在“99:99”等异常值。我们将其转换统一为浮点数表示的小时数，并对异常值进行处理，通常将其视为缺失值或根据业务逻辑进行填充。
+$$ \text{时间}_{\text{小时}} = \text{小时} + \frac{\text{分钟}}{60} $$
+此转换确保了睡眠时间数据的数值化和可计算性。
 
-
-
-
-
-\textbf{Step2：} 配对分数差值$D_i$经Shapiro-Wilk检验$ p = 0.187 $，可视为正态，使用配对t检验，$p=0.001$，存在显著性差异。Cohen's $d=0.52$，为中等效应。
-
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/descriptive_statistics.png}
-% \caption{单图}
-\label{fig:单图}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/normality_test.png}
-% \caption{单图}
-\label{fig:单图}
-\end{figure}
-
-\textbf{Step3：} 组内一致性分析，ICC(2,1)结果分别为：第一组$0.518$（中等一致性），第二组$0.323$（较差）。第一组评分标准和稳定性明显优于第二组。
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/icc_analysis.png}
-% \caption{单图}
-\label{fig:单图}
-\end{figure}
-
-\subsubsection{求解结果}
-综合上述结果，两组专家评分在统计意义上有显著差异，第一组评分一致性更高，更具可信度。在评价体系优化和权重调整时建议优先参考一致性更高的专家组评分。
-
-
-\section{问题二的模型建立和求解}
-\subsection{模型建立}
-\textbf{层级贝叶斯模型结构}
-分为三层：
-\begin{align*}
-    S_{ijk} &\sim \mathcal{N}(\mu_{global} + \alpha_i + \beta_{ij},\ \sigma_{error}^2) \\
-    \alpha_i &\sim \mathcal{N}(0,\ \sigma_{college}^2) \\
-    \beta_{ij} &\sim \mathcal{N}(0,\ \sigma_{expert\_group}^2)
-\end{align*}
-其中$\sigma_{college}$和$\sigma_{expert\_group}$分别表征学院间、专家组间系统性变异程度。
-
-为直观展示各学院原始分数分布，图2给出了箱线图。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/EDA/college_scores_boxplot.png}
-\caption{各学院原始分数分布箱线图}
-\label{fig:college_scores_boxplot}
-\end{figure}
-
-\textbf{参数先验与贝叶斯推断}
+\subsubsection{分类变量编码与映射}
+数据集中包含婚姻状况、教育程度、分娩方式、婴儿性别、入睡方式和婴儿行为特征等分类变量。为使其能够被回归模型处理，我们进行了以下操作：
 \begin{itemize}
-    \item $\mu_{global}$ 选宽阔正态分布为先验，$\sigma_{error},\ \sigma_{college},\ \sigma_{expert\_group}$可选Inverse-Gamma等弱信息先验。
-    \item 采用马尔科夫链蒙特卡洛（MCMC）等方法采样后验，实现参数估计与不确定性量化。
+    \item \textbf{数值映射为标签}：将原始的数值编码（如1、2、3等）映射为更具可读性的类别标签（如“未婚”、“已婚”；“哄睡法”、“自主入睡”）。
+    \item \textbf{独热编码 (One-Hot Encoding)}：对于无序的分类变量，如入睡方式、教育程度等，采用独热编码将其转换为二元（0/1）指示变量。这避免了将分类变量误解释为有序数值，并消除了因任意数值赋值而引入的潜在偏差。例如，教育程度的“研究生”类别将被转换为一个独立的二元特征。
 \end{itemize}
+婴儿行为特征作为因变量，被映射为数值（如安静型=0，中等型=1，矛盾型=2），以适应多项逻辑回归模型的输入要求。
+
+\subsubsection{数值型特征标准化}
+对于母亲年龄、妊娠时间、CBTS、EPDS、HADS等数值型预测变量，我们采用标准差标准化（Z-score normalization）处理。
+$$ X' = \frac{X - \mu}{\sigma} $$
+其中，$X$ 是原始特征值，$\mu$ 是特征的均值，$\sigma$ 是特征的标准差。标准化后的特征均值为0，标准差为1。此步骤有助于：
+\begin{itemize}
+    \item 消除不同特征量纲和取值范围差异带来的影响，确保模型优化过程中所有特征得到同等重视。
+    \item 加速模型收敛，尤其对于基于梯度下降的优化算法（如逻辑回归）。
+    \item 提高模型的可解释性和稳定性，避免某些特征因数值过大而主导模型。
+\end{itemize}
+这些预处理步骤共同确保了数据的规范性、一致性和可用性，为后续的模型构建奠定了坚实基础。
+
+\subsection{探索性数据分析 (EDA) 结果}
+在模型构建之前，我们进行了全面的探索性数据分析，以揭示数据内部的结构、变量分布以及变量间的潜在关联。
+
+\subsubsection{变量分布特征}
+我们首先分析了关键变量的分布情况。
+\begin{itemize}
+    \item \textbf{母亲心理指标分布}：如图\ref{fig:psychological_indicators_distribution}所示，CBTS、EPDS和HADS得分均呈右偏分布，表明大多数母亲心理状况良好，但存在一定比例的母亲有心理健康问题。
+    \item \textbf{婴儿睡眠质量指标分布}：如图\ref{fig:sleep_quality_distribution}所示，婴儿整晚睡眠时间主要集中在10-12小时，符合婴儿的正常睡眠需求；睡醒次数主要集中在0-2次，但也存在少数婴儿睡醒次数较多。
+    \item \textbf{婴儿行为特征分布}：如图\ref{fig:baby_behavior_distribution}所示，样本中中等型婴儿占比最高（57.7\%），其次为安静型（30.8\%），矛盾型婴儿占比最低（11.5\%），存在明显的类别不平衡。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/psychological_indicators_distribution.png}
+    \caption{母亲心理指标分布}
+    \label{fig:psychological_indicators_distribution}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/sleep_quality_distribution.png}
+    \caption{睡眠质量指标分布}
+    \label{fig:sleep_quality_distribution}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/baby_behavior_distribution.png}
+    \caption{婴儿行为特征分布}
+    \label{fig:baby_behavior_distribution}
+\end{figure}
+
+\subsubsection{相关性分析}
+我们计算了数值型变量间的皮尔逊相关系数，并生成相关性热力图（如图\ref{fig:correlation_heatmap}所示）。
+\begin{itemize}
+    \item \textbf{母亲心理指标之间存在强相关性}：EPDS与HADS相关系数高达0.79，CBTS与EPDS为0.78，CBTS与HADS为0.69。这表明抑郁、焦虑和创伤后应激障碍往往同时出现，提示在临床干预中应综合考虑。
+    \item \textbf{母亲心理指标与婴儿睡眠质量的负相关}：母亲心理指标（CBTS、EPDS、HADS）与婴儿整晚睡眠时间呈弱到中等程度的负相关，与睡醒次数呈正相关。这初步揭示了母亲心理压力越大，婴儿睡眠质量可能越差的规律。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/correlation_heatmap.png}
+    \caption{母亲指标与婴儿指标相关性热力图}
+    \label{fig:correlation_heatmap}
+\end{figure}
+
+\subsubsection{分类变量对连续变量的影响 (ANOVA)}
+我们使用方差分析（ANOVA）检验了各分类变量对婴儿睡眠质量指标（睡醒次数、整晚睡眠时间）的影响。相关结果分别展示在图\ref{fig:anova_wake_up_times}和图\ref{fig:anova_sleep_time}中。
+\begin{itemize}
+    \item \textbf{入睡方式的显著影响}：
+    \begin{itemize}
+        \item 对睡醒次数：入睡方式对睡醒次数有显著影响（$F=16.87, p<0.001$）。自主入睡的婴儿睡醒次数明显少于其他入睡方式。
+        \item 对整晚睡眠时间：入睡方式对整晚睡眠时间也有显著影响（$F=12.18, p<0.001$）。自主入睡的婴儿整晚睡眠时间明显长于其他入睡方式。
+    \end{itemize}
+    \item \textbf{其他分类变量影响不显著}：婚姻状况、教育程度、分娩方式、婴儿性别对睡眠质量的影响均不显著（$p>0.05$）。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/anova_睡醒次数_combined.png}
+    \caption{睡醒次数的ANOVA分析结果}
+    \label{fig:anova_wake_up_times}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/anova_整晚睡眠时间（小时）_combined.png}
+    \caption{整晚睡眠时间（小时）的ANOVA分析结果}
+    \label{fig:anova_sleep_time}
+\end{figure}
+
+\subsubsection{分类变量间的关联性 (Chi-square)}
+我们利用卡方检验（Chi-square test）评估了分类变量之间的关联性。图\ref{fig:chi_square_significant}展示了具有统计显著性（$p<0.05$）的分类变量对，而图\ref{fig:chi_square_p_values_heatmap}则以热力图形式呈现了所有分类变量对的p值。
+\begin{itemize}
+    \item \textbf{婚姻状况与教育程度的关联}：婚姻状况与教育程度之间存在显著关联（$p=0.020$），表明已婚母亲的教育程度普遍较高。
+    \item \textbf{入睡方式与婴儿行为特征的关联}：入睡方式与婴儿行为特征之间存在显著关联（$p=0.014$），自主入睡的婴儿更倾向于安静型行为特征。
+    \item 大多数分类变量之间没有显著关联，表明这些因素相对独立。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/chi_square_significant_results.png}
+    \caption{显著的卡方检验结果 ($p < 0.05$)}
+    \label{fig:chi_square_significant}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/chi_square_p_values_heatmap.png}
+    \caption{卡方检验p值热力图 (p值越小，关联越显著)}
+    \label{fig:chi_square_p_values_heatmap}
+\end{figure}
+
+\subsubsection{多重共线性检查}
+为了评估模型中自变量之间的多重共线性问题，我们计算了各预测变量的方差膨胀因子（VIF）。如图\ref{fig:multicollinearity_vif}所示：
+\begin{itemize}
+    \item 教育程度\_研究生的VIF值最高（5.72），接近但未超过常用的警戒线（VIF=10），表明存在一定的共线性但仍在可接受范围。
+    \item 教育程度\_高中和教育程度\_大学的VIF值也较高（分别为4.56和4.36）。
+    \item EPDS的VIF值为3.94，反映了与其他心理指标之间存在一定相关性。
+    \item 大多数变量的VIF值小于2.5，表明多重共线性问题总体可控，不会严重影响模型结果的稳定性或解释力。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/multicollinearity_vif.png}
+    \caption{多重共线性检查 (VIF)}
+    \label{fig:multicollinearity_vif}
+\end{figure}
+
+\subsection{模型选择与理论基础}
+根据问题一所涉因变量的类型（连续型与多分类型），我们选择了相应的统计回归模型进行分析。
+
+\subsubsection{婴儿睡眠质量模型：多元线性回归}
+由于婴儿的“整晚睡眠时间”和“睡醒次数”均为连续数值型变量，我们选择多元线性回归 (Multiple Linear Regression) 作为其预测模型。多元线性回归旨在建立一个线性关系，用一个或多个自变量来预测因变量的取值。
+其一般形式为：
+$$ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k + \epsilon $$
+其中：
+\begin{itemize}
+    \item $Y$ 是因变量（如整晚睡眠时间或睡醒次数）。
+    \item $X_1, X_2, \dots, X_k$ 是 $k$ 个自变量（如母亲年龄、心理指标、入睡方式等）。
+    \item $\beta_0$ 是截距项。
+    \item $\beta_1, \beta_2, \dots, \beta_k$ 是对应自变量的回归系数，表示在其他自变量不变的情况下，该自变量每增加一个单位，因变量的平均变化量。
+    \item $\epsilon$ 是误差项，代表模型未能解释的随机变异。
+\end{itemize}
+模型通过最小化残差平方和（Ordinary Least Squares, OLS）来估计回归系数。模型的评估指标包括决定系数 ($R^2$)、调整决定系数 (Adjusted $R^2$)、F统计量及其p值，用于评估模型的整体拟合优度和统计显著性。
+
+\subsubsection{婴儿行为特征模型：多项逻辑回归}
+婴儿行为特征（“安静型”、“中等型”、“矛盾型”）是一个具有三个或更多无序类别的分类变量。因此，我们选择多项逻辑回归 (Multinomial Logistic Regression) 模型来分析母亲各项因素对其影响。多项逻辑回归是二元逻辑回归的扩展，用于预测一个多分类因变量的概率。
+它通过建立多个二元逻辑回归模型来比较每个类别与一个基准类别（参考类别）的对数发生比 (log-odds)。假设我们有 $J$ 个类别，选择第 $J$ 个类别作为参考类别。对于每个非参考类别 $j \in \{1, \dots, J-1\}$，模型估计其相对于参考类别的对数发生比：
+$$ \ln\left(\frac{P(Y=j | \mathbf{X})}{P(Y=J | \mathbf{X})}\right) = \beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \dots + \beta_{jk} X_k $$
+其中：
+\begin{itemize}
+    \item $P(Y=j | \mathbf{X})$ 是在给定自变量 $\mathbf{X}$ 的情况下，因变量属于类别 $j$ 的概率。
+    \item $\beta_{j}$ 是对应于类别 $j$ 的回归系数向量。
+\item 发生比 (Odds Ratio, OR)：$e^{\beta_{ji}}$ 表示在其他自变量不变的情况下，自变量 $X_i$ 每增加一个单位，因变量属于类别 $j$ 而而非参考类别的发生比的变化倍数。
+\end{itemize}
+模型的评估通常使用赤池信息准则 (AIC) 和贝叶斯信息准则 (BIC)，它们平衡了模型的拟合优度和复杂度。发生比 (Odds Ratio) 的可视化是理解自变量对不同类别影响的关键。
+
+\subsection{模型构建与求解}
+在确定模型类型后，我们基于前期探索性数据分析的结果，构建并求解了各个模型。
+
+\subsubsection{婴儿睡眠质量线性回归模型构建}
+我们分别构建了预测“整晚睡眠时间”和“睡醒次数”的线性回归模型。模型纳入了所有经过预处理的母亲身体指标、心理指标以及独热编码后的分类变量。
+
+\paragraph{整晚睡眠时间模型}
+模型整体显著 ($F=4.66, p < 0.001$)，但解释力有限 ($R^2 = 0.184$, Adjusted $R^2 = 0.145$)。这表明模型捕捉到了一部分变异，但婴儿睡眠时间受多种复杂因素影响，现有变量仅解释了约18.4\%的变异。
+\begin{itemize}
+    \item \textbf{显著预测因子}：
+    \begin{itemize}
+        \item \textbf{入睡方式\_自主入睡}：自主入睡的婴儿整晚睡眠时间显著更长。这证实了前期ANOVA分析的发现，并强调了这一因素对婴儿睡眠质量的决定性作用。
+        \item \textbf{EPDS得分}：母亲EPDS（爱丁堡产后抑郁量表）得分越高，婴儿整晚睡眠时间越短，呈现显著负相关。这揭示了母亲抑郁情绪对婴儿睡眠的负面影响。
+    \end{itemize}
+\end{itemize}
+
+\paragraph{睡醒次数模型}
+模型整体显著 ($F=5.32, p < 0.001$)，解释力略高于睡眠时间模型 ($R^2 = 0.205$, Adjusted $R^2 = 0.167$)。
+\begin{itemize}
+    \item \textbf{显著预测因子}：
+    \begin{itemize}
+        \item \textbf{入睡方式}：入睡方式是影响睡醒次数的最显著因素。具体而言，自主入睡的婴儿睡醒次数明显更少。
+        \item \textbf{HADS得分}：母亲HADS（医院焦虑抑郁量表）得分越高，婴儿睡醒次数越多，呈现显著正相关。这进一步印证了母亲心理健康状况与婴儿睡眠质量的紧密联系。
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{婴儿行为特征多项逻辑回归模型构建}
+我们构建了多项逻辑回归模型来预测婴儿的行为特征。在此模型中，我们将“中等型”婴儿作为参考类别，分析其他两类（“安静型”和“矛盾型”）相对于“中等型”的发生比。
+模型评估指标为 $AIC = 693.31$ 和 $BIC = 844.02$。虽然模型能够区分不同行为特征类型，但预测准确率仍有提升空间。图\ref{fig:baby_behavior_odds_ratios}展示了各变量对婴儿行为特征影响的发生比。
+\begin{itemize}
+    \item \textbf{显著预测因子与发生比分析}：
+    \begin{itemize}
+        \item \textbf{母亲心理指标 (CBTS, EPDS, HADS)}：这三项指标对婴儿行为特征有显著影响。母亲心理压力越大（即CBTS、EPDS、HADS得分越高），婴儿表现为“矛盾型”行为特征的可能性相对于“中等型”越大。这提示母亲心理健康问题可能导致婴儿出现更具挑战性的行为模式。
+        \item \textbf{入睡方式}：入睡方式对婴儿行为特征具有显著影响。具体而言，与“中等型”婴儿相比，采用“自主入睡”方式的婴儿更倾向于表现为“安静型”行为特征。这再次强调了培养良好入睡习惯的重要性。
+        \item \textbf{母亲教育程度}：母亲教育程度对婴儿行为特征也有一定影响。通常，教育程度越高的母亲，其婴儿表现为“安静型”的可能性越大。这可能反映了高教育程度母亲在育儿理念、环境创设或早期干预方面的优势。
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/婴儿行为特征_odds_ratios.png} % 假设此图片文件也可用
+    \caption{婴儿行为特征发生比可视化}
+    \label{fig:baby_behavior_odds_ratios}
+\end{figure}
+
+\subsection{模型结果与分析}
+综合上述线性回归与多项逻辑回归模型的结果，我们可以得出以下关键发现：
+
+\begin{enumerate}
+    \item \textbf{母亲心理健康是婴儿发展的重要决定因素}：
+    我们的模型一致表明，母亲的抑郁（EPDS）、焦虑（HADS）和分娩相关创伤后应激（CBTS）症状与婴儿的睡眠质量和行为特征之间存在显著关联。具体表现为：母亲的心理压力越大，婴儿的整晚睡眠时间越短，睡醒次数越多，且更倾向于表现出“矛盾型”行为特征。这一发现强调了在产妇保健中纳入心理健康筛查与干预的重要性。
+    \item \textbf{入睡方式对婴儿睡眠与行为具有核心影响}：
+    无论是整晚睡眠时间、睡醒次数，还是婴儿行为特征，入睡方式均被识别为最关键的影响因素之一。自主入睡的婴儿普遍拥有更长的整晚睡眠时间，更少的睡醒次数，并且更可能表现为“安静型”行为。这为育儿实践提供了明确的指导：培养婴儿的自主入睡能力是改善其睡眠和行为的有效途径。
+    \item \textbf{模型解释力与个体差异}：
+    尽管模型整体具有统计显著性，但线性回归模型的 $R^2$ 值相对较低（约0.18-0.20），表明现有变量仅能解释婴儿睡眠质量变异的一小部分。这提示婴儿的睡眠和行为发展受到多方面因素的复杂影响，除了我们纳入的母亲身心健康和育儿方式外，可能还存在其他未被量化或收集的遗传、环境、生理等因素，从而导致显著的个体差异。因此，在实践中，干预措施需要考虑个体化和多维度支持。
+    \item \textbf{心理指标的协同作用}：
+    母亲的CBTS、EPDS和HADS之间存在高度相关性，提示这些心理困扰并非孤立存在，而是相互关联、可能同时出现的。在多项逻辑回归中，它们共同作用于婴儿行为特征。这提示在临床干预中，应采取综合性的心理支持策略，而非仅关注单一症状。
+\end{enumerate}
+这些模型分析结果为理解母亲身心健康与婴儿早期发展的复杂关系提供了量化证据，并为未来的干预策略指明了方向。尽管模型解释力存在局限性，但其识别的关键影响因素具有重要的实践指导意义。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{问题二的模型的建立和求解}
+\subsection{模型建立}
+
+引用\cref{fig:双图}，引用\cref{fig:双图a}，引用\cref{fig:双图b}。
+
+\begin{figure}[ht]
+\centering
+\subcaptionbox{双图a子标题\label{fig:双图a}}
+{\includegraphics[width=.4\textwidth]{example.eps}}
+\subcaptionbox{双图b子标题\label{fig:双图b}}
+{\includegraphics[width=.4\textwidth]{example.eps}}
+\caption{双图}\label{fig:双图}
+\end{figure} 
 
 \subsection{模型求解}
-\textbf{Step 1：模型拟合与参数后验估计}
-\begin{enumerate}
-    \item 整理原始数据$(S_{ijk})$，按“学院-专家组-教师”嵌套输入；
-    \item 用Bayesian工具（如PyMC3、Stan等）编码上述分层模型，设定先验；
-    \item 运行MCMC，检查traceplot与Rhat指标，确保收敛，获取各层次效应的后验分布和均值估计；
-    \item 计算$\widehat{\mu}_{global}$、$\widehat{\alpha}_{i}$、$\widehat{\beta}_{ij}$并保存。
-\end{enumerate}
 
-模型参数采样的后验分布如图3所示，采样过程的收敛性见图4。
+\textbf{Step1：} 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{figures/Diagnostics/posterior_plots.png}
-\caption{主要参数后验分布图}
-\label{fig:posterior_plots}
-\end{figure}
+\textbf{Step2：} 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{figures/Diagnostics/trace_plots.png}
-\caption{MCMC采样traceplot诊断图}
-\label{fig:trace_plots}
-\end{figure}
+\textbf{Step3：} 
 
-\textbf{Step 2：系统性偏差校正与分数标准化}
-\begin{itemize}
-    \item 对每一位教师的得分$S_{ijk}$，计算剥离偏差后的校正分数：
-    $$
-    \widetilde{S}_{ijk} = S_{ijk} - \widehat{\alpha}_i - \widehat{\beta}_{ij} + \widehat{\mu}_{global}
-    $$
-    \item 再对校正分进行标准化映射，使全校分数均值定为85、标准差为5（限制在$[60,100]$区间）：
-    $$
-    S_{final} = \min \left\{100,\ \max\left[60,\ 85 + 5 \times \frac{\widetilde{S}_{ijk} - \overline{\widetilde{S}}}{\widehat{\sigma}_{\widetilde{S}}}\right]\right\}
-    $$
-    其中$\overline{\widetilde{S}}$为所有校正分均值，$\widehat{\sigma}_{\widetilde{S}}$为标准差。
+\subsection{求解结果}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{问题三的模型的建立和求解}
+\subsection{模型建立}
+
+\subsection{模型求解}
+
+\textbf{Step1：} 
+
+\textbf{Step2：} 
+
+\textbf{Step3：} 
+
+\subsection{求解结果}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{问题四的模型的建立和求解}
+\subsection{模型建立}
+
+\subsection{模型求解}
+
+\textbf{Step1：} 
+
+\textbf{Step2：} 
+
+\textbf{Step3：} 
+
+\subsection{求解结果}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{模型的分析与检验}
+
+\subsection{灵敏度分析}
+
+\subsection{误差分析}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{模型的评价}
+
+\subsection{模型的优点}
+\begin{itemize}[itemindent=2em]
+\item 优点1
+\item 优点2
+\item 优点3
 \end{itemize}
 
-\textbf{Step 3：结果分析与可视化}
-校正前后各学院的均值、极差和分布特征变化见图5，标准化后分布更加集中，极端差异明显减小。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{figures/Results_Visualization/college_scores_comparison.png}
-\caption{校正前后各学院分数分布对比}
-\label{fig:college_scores_comparison}
-\end{figure}
-
-教师排名和分数分布的变化见图6和图7，可以看出模型提升了整体的公平性。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{figures/Results_Visualization/rank_comparison_scatter.png}
-\caption{校正前后教师排名变化散点图}
-\label{fig:rank_comparison_scatter}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{figures/Results_Visualization/score_distributions_comparison.png}
-\caption{分数分布直方图对比，校正后分布更接近正态}
-\label{fig:score_distributions_comparison}
-\end{figure}
-
-
-
-% \section{问题二的模型的建立和求解}
-% \subsection{模型建立}
-
-% 引用\cref{fig:双图}，引用\cref{fig:双图a}，引用\cref{fig:双图b}。
-
-% \begin{figure}[ht]
-% \centering
-% \subcaptionbox{双图a子标题\label{fig:双图a}}
-% {\includegraphics[width=.4\textwidth]{example.eps}}
-% \subcaptionbox{双图b子标题\label{fig:双图b}}
-% {\includegraphics[width=.4\textwidth]{example.eps}}
-% \caption{双图}\label{fig:双图}
-% \end{figure} 
-
-% \subsection{模型求解}
-
-% \textbf{Step1：} 
-
-% \textbf{Step2：} 
-
-% \textbf{Step3：} 
-
-% \subsection{求解结果}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-% \section{问题三的模型的建立和求解}
-% \subsection{模型建立}
-
-% \subsection{模型求解}
-
-% \textbf{Step1：} 
-
-% \textbf{Step2：} 
-
-% \textbf{Step3：} 
-
-% \subsection{求解结果}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-% \section{问题四的模型的建立和求解}
-% \subsection{模型建立}
-
-% \subsection{模型求解}
-
-% \textbf{Step1：} 
-
-% \textbf{Step2：} 
-
-% \textbf{Step3：} 
-
-% \subsection{求解结果}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{模型的分析与检验}
-
-% \subsection{灵敏度分析}
-
-% \subsection{误差分析}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{模型的评价}
-
-% \subsection{模型的优点}
-% \begin{itemize}[itemindent=2em]
-% \item 优点1
-% \item 优点2
-% \item 优点3
-% \end{itemize}
-
-% \subsection{模型的缺点}
-% \begin{itemize}[itemindent=2em]
-% \item 缺点1
-% \item 缺点2
-% \end{itemize}
+\subsection{模型的缺点}
+\begin{itemize}[itemindent=2em]
+\item 缺点1
+\item 缺点2
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 参考文献
-% \nocite{*}
-% \bibliographystyle{gbt7714-numerical}  % 引用格式
-% \bibliography{ref.bib}  % bib源
+\nocite{*}
+\bibliographystyle{gbt7714-numerical}  % 引用格式
+\bibliography{ref.bib}  % bib源
 
-
-\begin{thebibliography}{99}
-
-[1] Wang, L.,\\
-Robust Intraclass Correlation Coefficients for Assessing Rater Reliability with Non-Normal and Heterogeneous Data[J].\\
-Journal of Educational and Behavioral Statistics, 2022.\\
-
-[2] Zhang, H.,\\
-Bayesian Hierarchical Modeling for Rater Bias Detection and Consistency Evaluation in Educational Assessment[J].\\
-Applied Psychological Measurement, 2021.\\
-
-[3] Li, M.,\\
-Multi-Dimensional Consistency Index: A Novel Metric for Evaluating Rater Agreement in Multi-Criteria Assessment[J].\\
-IEEE Transactions on Knowledge and Data Engineering, 2023.\\
-
-[4] Chen, J.,\\
-Missing Data Imputation for Rater Assessment: A Graph Neural Network Approach[J].\\
-Neurocomputing, 2020.\\
-
-[5] Brown, S.,\\
-Empirical Validation of Rater Reliability: Linking Statistical Consistency to Real-World Outcomes[J].\\
-Educational Evaluation and Policy Analysis, 2024.\\
-
-\end{thebibliography}
-
-% 附录A之前插入参考文献
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附录
 \begin{appendices}
-% ...existing code...
-\section{代码}
-\noindent 1：数据预处理
-\lstinputlisting[language=python]{code/excel_to_csv.py}
-2：问题一模型
-\lstinputlisting[language=python]{code/problem1_solution.py}
-3：问题二模型
-\lstinputlisting[language=python]{code/problem2_solution.py}
+\section{文件列表}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{LL}
+\toprule
+文件名   & 功能描述 \\
+\midrule
+q1.m & 问题一程序代码 \\
+q2.py & 问题二程序代码 \\
+q3.c & 问题三程序代码 \\
+q4.cpp & 问题四程序代码 \\
+\bottomrule
+\end{tabularx}
+\label{tab:文件列表}
+\end{table}
 
+\section{代码}
+\noindent q1.m
+\lstinputlisting[language=matlab]{code/q1.m}
+q2.py
+\lstinputlisting[language=python]{code/q2.py}
+q3.c
+\lstinputlisting[language=c]{code/q3.c}
+q4.cpp
+\lstinputlisting[language=c++]{code/q4.cpp}
 \end{appendices}
 \end{document}
 
 
-
+%%%%%双图模板%%%%%%
+\begin{figure}
+\centering
+\subcaptionbox{炉温曲线示意图\label{fig:双图a}}
+{\includegraphics[width=.4\textwidth]{炉温曲线示意图.png}}
+\subcaptionbox{问题1炉温曲线\label{fig:双图b}}
+{\includegraphics[width=.4\textwidth]{问题1炉温曲线.png}}
+\caption{双图}\label{fig:双图}
+\end{figure} 
+%%%%%双图模板%%%%%%
