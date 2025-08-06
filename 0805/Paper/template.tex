@@ -326,29 +326,260 @@ $$ \ln\left(\frac{P(Y=j | \mathbf{X})}{P(Y=J | \mathbf{X})}\right) = \beta_{j0} 
 
 
 \section{问题二的模型的建立和求解}
+
 \subsection{模型建立}
 
-引用\cref{fig:双图}，引用\cref{fig:双图a}，引用\cref{fig:双图b}。
+本题旨在建立婴儿行为特征（安静型、中等型、矛盾型）与母亲身体及心理指标的关系模型，并预测未知样本类别。基于前述分析，模型流程如下：
 
-\begin{figure}[ht]
-\centering
-\subcaptionbox{双图a子标题\label{fig:双图a}}
-{\includegraphics[width=.4\textwidth]{example.eps}}
-\subcaptionbox{双图b子标题\label{fig:双图b}}
-{\includegraphics[width=.4\textwidth]{example.eps}}
-\caption{双图}\label{fig:双图}
-\end{figure} 
+
+
+\subsubsection{\textbf{模型选择与模型结构：}}
+        
+\noindent\textbf{随机森林（Random Forest）} 是本题的最佳选择。理由如下：
+        \begin{enumerate}
+            
+            \item \textbf{高精度与鲁棒性：} 作为一种集成学习方法，它通过构建大量独立决策树并进行多数投票，显著提高了预测精度和抗噪声能力，不易过拟合。
+            \item \textbf{处理非线性关系：} 决策树本身能够捕捉特征与目标之间复杂的非线性关系和潜在的交互作用，这在复杂的医学/心理学数据中尤为重要。
+            \item \textbf{特征重要性：} 随机森林能够直接输出每个特征的重要性，这为我们提供了模型可解释性，有助于识别影响婴儿行为特征的关键母亲指标。
+            \item \textbf{对类别不平衡的缓解：} 虽然不是根本解决，但结合 \texttt{class\_weight='balanced'} 参数，随机森林能在一定程度上缓解类别不平衡问题。
+        \end{enumerate}
+
+\noindent\textbf{模型结构：}
+        
+对于每一棵决策树$h_b(\cdot)$，$b=1,\ldots,B$，其在样本$\mathbf{x}$上的输出为$\hat{y}_b = h_b(\mathbf{x})$。集合所有树的输出，分类结果为
+\begin{equation}
+    \hat{y} = \mathrm{mode}\{ h_1(\mathbf{x}), h_2(\mathbf{x}), \ldots, h_B(\mathbf{x}) \}
+\end{equation}
+其中$\mathrm{mode}\{\cdot\}$为众数操作。
+
+\subsubsection{ 数据预处理}
+
+    \textbf{目标：} 将原始数据转换为适用于机器学习模型的结构和格式，并进行训练集与预测集的划分。
+    
+     \textbf{变量识别：}
+    \begin{itemize}
+        \item \textbf{自变量 (特征) $X$：} 母亲年龄、婚姻状况、教育程度、妊娠时间（周数）、分娩方式、CBTS、EPDS、HADS。
+        \item \textbf{因变量 (目标) $Y$：} 婴儿行为特征（安静型、中等型、矛盾型）。
+        \item \textbf{辅助变量：} 编号 (用于关联预测结果)。
+    \end{itemize}
+\textbf{步骤：}
+    \begin{enumerate}
+        \item \textbf{数据加载与分离：}
+        \begin{itemize}
+            \item 从 \texttt{数据.csv} 文件加载原始数据。
+            \item 根据 \texttt{婴儿行为特征} 列是否为空或空字符串，将原始数据划分为：
+            \begin{itemize}
+                \item \textbf{训练集 (Training Set):} 包含 \texttt{婴儿行为特征} 值的390条记录，用于模型训练和评估。
+                \item \textbf{待预测集 (Prediction Set):} \texttt{婴儿行为特征} 为空的20条记录（编号391-410），用于最终预测。
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{目标变量编码：}
+
+将训练集中的 \texttt{婴儿行为特征} 列进行数值编码，转换为模型可识别的整数标签。其中：       
+ 安静型 $\to 0$,
+ 中等型 $\to 1$,
+ 矛盾型 $\to 2$,
+
+
+
+            \[
+            Y_{\text{encoded},i} = 
+            \begin{cases}
+                0 & \text{if 婴儿行为特征}_i = \text{安静型} \\
+                1 & \text{if 婴儿行为特征}_i = \text{中等型} \\
+                2 & \text{if 婴儿行为特征}_i = \text{矛盾型} 
+            \end{cases}
+            \]
+
+        \item \textbf{类别分布分析：}
+        \begin{itemize}
+            \item 统计并报告训练集中三种婴儿行为特征的\textbf{具体样本数量和百分比}。
+            \item \textbf{强调不平衡性：} 明确指出“矛盾型”为少数类别，这将在后续模型构建和评估中重点关注。
+        \end{itemize}
+        \item \textbf{特征类型分类：}
+        \begin{itemize}
+            \item 明确区分输入特征中的\textbf{数值型特征}（\texttt{母亲年龄}、\texttt{妊娠时间（周数）}、\texttt{CBTS}、\texttt{EPDS}、\texttt{HADS}）。
+            \item 明确区分\textbf{类别型特征}（\texttt{婚姻状况}、\texttt{教育程度}、\texttt{分娩方式}）。
+        \end{itemize}
+        \item \textbf{数据转换管道构建：}
+        \begin{itemize}
+            \item 使用 \texttt{sklearn.compose.ColumnTransformer} 构建预处理管道。
+            \begin{itemize}
+                \item 对于数值型特征，应用 \textbf{StandardScaler} 进行标准化。
+                \item 对于类别型特征，应用 \textbf{OneHotEncoder} 进行独热编码。
+                \item \textbf{关键参数：} 设置 \texttt{handle\_unknown='ignore'}，以防止在预测阶段遇到训练集中未出现的新类别时引发错误。
+            \end{itemize}
+            \item \textbf{数学表达式（标准化）：} 对于任意数值特征 $X_j$，其标准化后的值 $X'_j = \frac{X_j - \bar{X}_j}{s_j}$，其中 $\bar{X}_j$ 和 $s_j$ 分别为训练集中 $X_j$ 的均值和标准差。
+            \item \textbf{理由：} 这种集成预处理的方法确保了后续建模过程的自动化、一致性，并有效避免了数据泄露。
+        \end{itemize}
+        \item \textbf{训练集与验证集划分：}
+        \begin{itemize}
+            \item 将已编码的训练集（390条记录）进一步划分为\textbf{训练子集}（例如80\%）和\textbf{验证集}（20\%）。
+            \item \textbf{关键方法：} 采用\textbf{分层抽样}（\texttt{stratify=y\_train\_encoded}），确保训练子集和验证集中各行为特征类别的比例与原始训练集保持一致。这对于评估模型在不同类别上的真实性能至关重要。
+        \end{itemize}
+    \end{enumerate}
+
+
+
+
+\subsubsection{\textbf{模型管道定义：}}
+        \begin{itemize}
+            \item 构建一个 \texttt{sklearn.pipeline.Pipeline} 对象，将数据预处理步骤（\texttt{ColumnTransformer}）和随机森林分类器（\texttt{RandomForestClassifier}）串联起来。
+            \item \textbf{示例：}
+            \begin{lstlisting}[language=Python]
+pipeline = Pipeline(steps=[
+    ('preprocessor', preprocessor_object),
+    ('classifier', RandomForestClassifier(random_state=Config.RANDOM_STATE))
+])
+            \end{lstlisting}
+        \end{itemize}
+
+    
+\subsubsection{超参数调优}
+
+\textbf{目标：} 通过系统搜索，找到使随机森林模型性能最优的超参数组合，以提高其在未知数据上的泛化能力。
+
+\textbf{步骤如下：}
+    \begin{enumerate}
+        \item \textbf{调优方法：} 采用\textbf{网格搜索（\texttt{GridSearchCV}）}进行超参数优化。
+        
+        \item \textbf{参数网格定义：} 明确定义随机森林分类器的超参数搜索空间。
+        \begin{itemize}
+            \item \texttt{classifier\_\_n\_estimators}: 决策树的数量，例如 \texttt{[100, 200, 300]}。树越多模型越稳定，但计算成本越高。
+            \item \texttt{classifier\_\_max\_features}: 每次分裂时考虑的最大特征数，例如 \texttt{['sqrt', 'log2', 0.8]}。控制决策树的多样性。
+            \item \texttt{classifier\_\_max\_depth}: 决策树的最大深度，例如 \texttt{[None, 10, 20]}。限制树的生长，防止过拟合。
+            \item \texttt{classifier\_\_min\_samples\_split}: 分裂内部节点所需的最小样本数，例如 \texttt{[2, 5]}。
+            \item \texttt{classifier\_\_min\_samples\_leaf}: 叶子节点所需的最小样本数，例如 \texttt{[1, 2]}。
+            \item \texttt{classifier\_\_class\_weight}: 类别权重，例如 \texttt{[None, 'balanced']}。\texttt{'balanced'}参数可自动根据类别样本比例调整权重，以减轻类别不平衡对少数类预测的影响。
+        \end{itemize}
+        
+        \item \textbf{交叉验证策略：} 在\texttt{GridSearchCV}中使用\textbf{K折交叉验证}（例如 $K=5$）。
+        \begin{itemize}
+            \item \textbf{理由：} 交叉验证能够更全面地评估模型性能，减少模型评估结果对特定训练/测试集划分的依赖，提高模型评估的可靠性。
+        \end{itemize}
+        
+        \item \textbf{评估指标：} 指定\texttt{scoring='f1\_weighted'}作为\texttt{GridSearchCV}的优化目标。
+        \begin{itemize}
+            \item \textbf{理由：} 加权F1分数对类别不平衡数据更敏感，能更客观地反映模型在所有类别上的综合性能，避免模型仅仅在多数类别上表现良好。
+        \end{itemize}
+        
+        \item \textbf{计算资源：} 配置\texttt{n\_jobs=-1}以利用所有可用CPU核心进行并行计算，加速调优进程。
+        
+        \item \textbf{结果报告：} 报告 \texttt{GridSearchCV} 找到的\textbf{最佳超参数组合}（\texttt{.best\_params\_}）和对应的\textbf{最高交叉验证加权F1分数}（\texttt{.best\_score\_}）。
+    \end{enumerate}
+    
+模型框架如\cref{eq:model}所示。
+
+\begin{equation}
+\label{eq:model}
+f^* = \arg\max_{f\in\mathcal{F}} \; F_1^{\text{weighted}}
+\end{equation}
+
+% 引用\cref{fig:模型流程图}。
+
+% \begin{figure}[ht]
+% \centering
+% \includegraphics[width=0.75\textwidth]{flowchart.eps}
+% \caption{问题二建模流程图}
+% \label{fig:模型流程图}
+% \end{figure}
+
+本方法参考了文献\cite{司守奎2011数学建模算法与应用}关于分类模型的设计思想，并借鉴了\upcite{卓金武2011MATLAB}中基于管道的机器学习实现。
 
 \subsection{模型求解}
 
-\textbf{Step1：} 
+\textbf{Step 1：数据划分与特征处理}
 
-\textbf{Step2：} 
+首先，将原始数据根据“婴儿行为特征”是否缺失分为训练集（390条有标签）与预测集（20条无标签）。对母亲年龄、妊娠时间、CBTS、EPDS、HADS等数值型变量进行标准化，对婚姻状况、教育程度、分娩方式等类别型变量特征进行标准化和独热编码处理，目标变量完成0-1-2数值化编码。所有预处理操作在Pipeline中自动完成。
 
-\textbf{Step3：} 
+对训练集类别进行分析。其分布见图\ref{fig:train-dist}：
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/婴儿行为特征分布.png}
+    \caption{婴儿行为特征分布（训练集）}
+    \label{fig:train-dist}
+\end{figure}
+可以看出样本分布中，中等型数量最多，矛盾型最少，数据呈现明显类别不平衡。
+
+\textbf{Step 2：模型训练与超参数调优}
+
+采用带有预处理的随机森林分类器建模。通过GridSearchCV，使用训练集进行随机森林建模，通过网格搜索（GridSearchCV）自动寻优参数组合，设置5折交叉验证并采用加权F1作为指标，缓解类别不平衡影响。在如下参数空间内寻优：
+
+\begin{itemize}
+    \item 决策树数量$n_\text{estimators}\,\in\,\{100, 200, 300\}$；
+    \item 最大树深$max\_depth\,\in\,\{\text{None}, 10, 20\}$；
+    \item 分裂最小样本$min\_samples\_split$等；
+    \item 类别权重$[None, 'balanced']$，选择能缓解类别不均的权重参数；
+    \item 各参数组合以加权F1分数为优化目标。
+\end{itemize}
+
+最终获得最优模型，将其在训练集上训练，并利用验证集评估性能。
+
+\textbf{Step 3：模型评价与可视化}
+
+模型在测试集上的主要评价指标如下：
+\[
+\text{准确率} = 0.5513\qquad
+\text{加权F}_1 = 0.4664
+\]
+
+具体精度、召回率和$F_1$指标如表，说明模型对“中等型”婴儿识别能力较好，对“矛盾型”能力较弱。
+
+进一步，利用混淆矩阵分析模型对各类别的判别能力（见图\ref{fig:conf-mat}）：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/confusion_matrix.png}
+    \caption{模型预测的混淆矩阵}
+    \label{fig:conf-mat}
+\end{figure}
+由图可见，“中等型”易被正确分类，而“矛盾型”大都被误判为“中等型”，反映出少数类别的预测困难。
+
+\textbf{Step 4：特征重要性分析}
+
+训练完成后，输出各特征对模型的重要性评分，并作排序可视化（见图\ref{fig:feature-importance}）：
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/feature_importance.png}
+    \caption{特征重要性排名（部分）}
+    \label{fig:feature-importance}
+\end{figure}
+可以看出，妊娠时间（周数）、母亲年龄及心理健康指标（EPDS、HADS、CBTS等）在婴儿行为预测中起到主导作用。这些关键特征的识别为后续的干预策略建议提供专业依据。
+
+\textbf{Step 5：未知样本预测及分布}
+
+最终，利用全体训练数据和最优模型，预测编号391-410的20个婴儿行为特征。预测结果分布见图\ref{fig:predict-dist}：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/预测婴儿行为特征分布.png}
+    \caption{预测婴儿行为特征分布（编号391-410）}
+    \label{fig:predict-dist}
+\end{figure}
+可见“中等型”预测概率最高，矛盾型未被预测。这与模型在验证集上的表现一致，进一步说明类别不平衡对模型泛化能力的影响。
+
+\textbf{Step 6：小结与讨论}
+
+模型有效实现了婴儿行为特征分类与未知样本预测，能够定量输出特征重要性。预测表现受限于类别不平衡和样本量有限，未来可考虑数据扩充、过采样及提升模型结构等改进方案。
+
+
+
 
 \subsection{求解结果}
 
+
+本节具体阐述模型训练、评估与预测全过程，包含数据分析、建模、评估、特征解释及结果预测。
+
+
+
+
+
+\begin{itemize}
+    \item \textbf{整体性能：} 测试集准确率0.5513，加权F1为0.4664。
+    \item \textbf{分类表现：} 模型对中等型婴儿识别最优（F1=0.70），对安静型次之（F1=0.20），对矛盾型识别能力较弱（F1=0）。
+    \item \textbf{特征重要性：} 妊娠时间、EPDS、母亲年龄、HADS、CBTS等为影响婴儿行为特征的关键因子。
+    \item \textbf{预测分布：} 20例未知婴儿预测结果为中等型17例，安静型3例，矛盾型0例，推论模型对少数类仍存失衡问题。
+\end{itemize}
+
+分析结果表明，提升对少数类（如矛盾型）识别能力仍是今后工作的重点，后续可尝试采用SMOTE等过采样、XGBoost等进一步优化模型泛化与公平性。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \section{问题三的模型的建立和求解}
